@@ -1,0 +1,745 @@
+
+/* Main Page */
+.menstrual-page {
+  padding: 30px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #fff7fb;
+  color: #493342;
+  font-family: Arial, sans-serif;
+}
+
+.menstrual-page * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.menstrual-header {
+  text-align: center;
+  padding: 35px 15px;
+}
+
+.header-tag {
+  display: inline-block;
+  color: #a83268;
+  background: #ffe4f0;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.menstrual-header h1 {
+  color: #b83e75;
+  font-size: 35px;
+  margin: 18px 0 12px;
+}
+
+.menstrual-header p {
+  max-width: 750px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #705968;
+}
+
+/* Common Headings */
+.cycle-section,
+.healthy-section {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.cycle-section h2,
+.healthy-section h2,
+.interactive-heading h2 {
+  color: #a83268;
+}
+
+.section-description {
+  color: #705968;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Interactive Section */
+.interactive-cycle {
+  margin-top: 20px;
+  padding: 30px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #fff0f6, #f8f0ff);
+}
+
+.interactive-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.interactive-heading h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.interactive-heading p {
+  color: #705968;
+  line-height: 1.6;
+}
+
+/* Diagram Layout */
+.cycle-interactive-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+  gap: 35px;
+  align-items: center;
+}
+
+/* Circular Diagram */
+.cycle-diagram {
+  width: 100%;
+  max-width: 410px;
+  aspect-ratio: 1;
+  margin: auto;
+  position: relative;
+  border-radius: 50%;
+  border: 10px solid white;
+  background: conic-gradient(
+    #f8c5d5 0deg 90deg,
+    #d9c8f0 90deg 180deg,
+    #f6dfad 180deg 270deg,
+    #c4e6dc 270deg 360deg
+  );
+  box-shadow: 0 8px 25px rgba(120, 60, 100, 0.13);
+}
+
+/* Diagram Center */
+.cycle-center {
+  position: absolute;
+  width: 36%;
+  height: 36%;
+  top: 32%;
+  left: 32%;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.cycle-center span,
+.cycle-center small {
+  color: #866478;
+  font-size: 11px;
+  text-align: center;
+}
+
+.cycle-center strong {
+  color: #a83268;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+/* Phase Buttons */
+.cycle-phase {
+  position: absolute;
+  width: 39%;
+  min-height: 70px;
+  padding: 8px 4px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #493342;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cycle-phase:hover {
+  transform: scale(1.04);
+}
+
+.cycle-phase.active {
+  border-color: var(--phase-color);
+  box-shadow: 0 0 0 3px white, 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.phase-icon {
+  font-size: 23px;
+}
+
+.phase-name {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.phase-1 {
+  top: 7%;
+  left: 4%;
+}
+
+.phase-2 {
+  top: 7%;
+  right: 4%;
+}
+
+.phase-3 {
+  bottom: 7%;
+  right: 4%;
+}
+
+.phase-4 {
+  bottom: 7%;
+  left: 4%;
+}
+
+/* Selected Phase Details */
+.cycle-details {
+  padding: 25px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.phase-label {
+  display: inline-block;
+  padding: 7px 13px;
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.cycle-details h3 {
+  color: #a83268;
+  font-size: 24px;
+  margin: 18px 0 8px;
+}
+
+.phase-days {
+  color: #986184;
+  font-weight: bold;
+}
+
+.cycle-details > p {
+  line-height: 1.7;
+}
+
+.phase-tip {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 12px;
+  background: #fff1f7;
+}
+
+.phase-tip strong {
+  color: #a83268;
+}
+
+.phase-tip p {
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.cycle-details label {
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cycle-day-slider {
+  width: 100%;
+  margin: 15px 0 8px;
+  accent-color: #c0447b;
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #866478;
+  font-size: 12px;
+}
+
+.cycle-note {
+  border-top: 1px solid #f0dce7;
+  padding-top: 12px;
+  margin-top: 20px;
+  color: #705968;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Phase Cards */
+.phase-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.phase-card {
+  position: relative;
+  min-width: 0;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: white;
+  color: #493342;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(192, 68, 123, 0.15);
+}
+
+.phase-card.selected-card {
+  border-color: var(--phase-color);
+}
+
+.phase-card img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.card-icon {
+  display: block;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.phase-card h3 {
+  color: #c0447b;
+  margin: 10px 0;
+}
+
+.phase-card-days {
+  display: inline-block;
+  color: #a83268;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.phase-card p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.learn-more {
+  display: inline-block;
+  margin-top: 8px;
+  color: #a83268;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Did You Know */
+.cycle-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 40px;
+  padding: 25px;
+  background: #ffe4f0;
+  border-radius: 16px;
+}
+
+.fact-icon {
+  font-size: 30px;
+}
+
+.cycle-fact h2 {
+  color: #a83268;
+  margin-top: 0;
+}
+
+.cycle-fact p {
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Healthy Habits */
+.habit-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.habit-card {
+  padding: 23px 18px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease;
+}
+
+.habit-card:hover {
+  transform: translateY(-4px);
+}
+
+.habit-card > span {
+  font-size: 32px;
+}
+
+.habit-card h3 {
+  color: #c0447b;
+}
+
+.habit-card p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Doctor Help */
+.help-section {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 16px;
+  background: #fff0f0;
+}
+
+.help-icon {
+  font-size: 32px;
+}
+
+.help-section h2 {
+  color: #a83268;
+  margin-top: 0;
+}
+
+.help-section p {
+  line-height: 1.7;
+}
+
+.help-note {
+  font-size: 13px;
+  color: #705968;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .phase-container,
+  .habit-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cycle-interactive-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cycle-diagram {
+    max-width: 370px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .menstrual-page {
+    padding: 15px;
+  }
+
+  .menstrual-header {
+    padding: 25px 5px;
+  }
+
+  .menstrual-header h1 {
+    font-size: 27px;
+    line-height: 1.4;
+  }
+
+  .menstrual-header p {
+    font-size: 15px;
+  }
+
+  .interactive-cycle {
+    padding: 15px;
+  }
+
+  .interactive-heading h2 {
+    font-size: 23px;
+  }
+
+  .cycle-diagram {
+    max-width: 340px;
+    border-width: 6px;
+  }
+
+  .cycle-phase {
+    min-height: 58px;
+    padding: 5px 2px;
+  }
+
+  .phase-name {
+    font-size: 10px;
+  }
+
+  .phase-icon {
+    font-size: 19px;
+  }
+
+  .cycle-center strong {
+    font-size: 29px;
+  }
+
+  .cycle-center span,
+  .cycle-center small {
+    font-size: 9px;
+  }
+
+  .cycle-details {
+    padding: 18px;
+  }
+
+  .cycle-details h3 {
+    font-size: 21px;
+  }
+
+  .phase-container,
+  .habit-container {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-card img {
+    height: 170px;
+  }
+
+  .cycle-fact,
+  .help-section {
+    padding: 18px;
+    gap: 12px;
+  }
+}
+
+
+
+
+
+/* Menstrual Health Problems Section */
+.health-problems-section {
+  margin-top: 45px;
+  padding: 30px;
+  background: linear-gradient(135deg, #fff0f6, #fff8fc);
+  border-radius: 22px;
+}
+
+.health-problems-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.health-section-tag {
+  display: inline-block;
+  padding: 7px 14px;
+  background: #ffe0ed;
+  color: #a83268;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.health-problems-heading h2 {
+  color: #a83268;
+  font-size: 28px;
+  margin: 18px 0 10px;
+}
+
+.health-problems-heading p {
+  max-width: 700px;
+  margin: auto;
+  color: #705968;
+  line-height: 1.7;
+}
+
+/* Health Problem Cards */
+.health-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.health-problem-card {
+  padding: 23px;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  text-align: left;
+  color: #493342;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.health-problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(192, 68, 123, 0.14);
+}
+
+.health-problem-card.problem-selected {
+  border-color: #c0447b;
+}
+
+.problem-icon {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.health-problem-card h3 {
+  color: #b83e75;
+  margin: 0 0 10px;
+}
+
+.health-problem-card p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.problem-action {
+  display: inline-block;
+  margin-top: 10px;
+  color: #a83268;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Expanded Information */
+.health-problem-details {
+  position: relative;
+  margin-top: 25px;
+  padding: 30px;
+  border-radius: 18px;
+  background: white;
+  border-left: 5px solid #c0447b;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+  animation: problemAppear 0.25s ease;
+}
+
+@keyframes problemAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-problem-details {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  background: #fff0f6;
+  color: #a83268;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.problem-detail-icon {
+  font-size: 35px;
+}
+
+.health-problem-details h3 {
+  color: #a83268;
+  font-size: 25px;
+  padding-right: 30px;
+}
+
+.health-problem-details h4 {
+  color: #a83268;
+  margin-top: 22px;
+  margin-bottom: 8px;
+}
+
+.health-problem-details p,
+.health-problem-details li {
+  line-height: 1.8;
+}
+
+.health-problem-details ul {
+  padding-left: 23px;
+}
+
+.medical-advice-box {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #fff1f4;
+}
+
+.medical-advice-box strong {
+  color: #a83268;
+}
+
+.medical-advice-box p {
+  margin-bottom: 0;
+}
+
+.medical-disclaimer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f0dce7;
+  color: #705968;
+  font-size: 13px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .health-problems-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .health-problems-section {
+    padding: 18px;
+  }
+
+  .health-problems-heading h2 {
+    font-size: 23px;
+  }
+
+  .health-problems-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .health-problem-card {
+    padding: 20px;
+  }
+
+  .health-problem-details {
+    padding: 22px 18px;
+  }
+
+  .health-problem-details h3 {
+    font-size: 21px;
+  }
+}

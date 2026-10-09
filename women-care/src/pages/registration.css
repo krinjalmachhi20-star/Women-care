@@ -1,0 +1,290 @@
+
+/* ================================
+   WOMEN CARE - REGISTRATION PAGE
+   ================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.registration-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(circle at top left, rgba(255, 182, 193, 0.45), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(221, 160, 221, 0.35), transparent 35%),
+    linear-gradient(135deg, #fff0f6, #f8edff, #ffeef5);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Registration Card */
+
+.registration-card {
+  width: 100%;
+  max-width: 480px;
+
+  padding: 35px 38px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 50px rgba(130, 70, 120, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.06);
+
+  backdrop-filter: blur(12px);
+
+  animation: cardAppear 0.6s ease;
+}
+
+/* Card animation */
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main Heading */
+
+.registration-card h1 {
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  margin-bottom: 8px;
+
+  background: linear-gradient(90deg, #d63384, #8e44ad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Create Account */
+
+.registration-card h2 {
+  text-align: center;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #444;
+
+  margin-bottom: 28px;
+}
+
+/* Form */
+
+.registration-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+
+.registration-card label {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #555;
+
+  margin-bottom: 7px;
+  margin-top: 14px;
+}
+
+/* Inputs */
+
+.registration-card input {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  font-size: 15px;
+
+  color: #333;
+
+  background: #fff;
+
+  border: 1.5px solid #e2d5df;
+  border-radius: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Input focus */
+
+.registration-card input:focus {
+  border-color: #d63384;
+
+  box-shadow:
+    0 0 0 4px rgba(214, 51, 132, 0.10);
+
+  transform: translateY(-1px);
+}
+
+/* Placeholder */
+
+.registration-card input::placeholder {
+  color: #aaa;
+}
+
+/* Number input */
+
+.registration-card input[type="number"] {
+  appearance: textfield;
+}
+
+/* Button */
+
+.registration-card button {
+  width: 100%;
+
+  margin-top: 28px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #d63384,
+    #a23bb7
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(166, 55, 145, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Button hover */
+
+.registration-card button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(166, 55, 145, 0.32);
+
+  background: linear-gradient(
+    135deg,
+    #c52f78,
+    #9133a5
+  );
+}
+
+/* Button click */
+
+.registration-card button:active {
+  transform: translateY(0);
+}
+
+/* Message */
+
+.registration-card form + p,
+.registration-card > p {
+  text-align: center;
+
+  font-size: 14px;
+
+  color: #666;
+
+  margin-top: 18px;
+}
+
+/* Login text */
+
+.registration-card > p:last-child {
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px solid #eee;
+}
+
+/* Login clickable text */
+
+.registration-card > p span {
+  color: #d63384;
+
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.registration-card > p span:hover {
+  color: #8e44ad;
+
+  text-decoration: underline;
+}
+
+/* Success / Error Message */
+
+.registration-card form ~ p:first-of-type {
+  color: #555;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 600px) {
+
+  .registration-page {
+    padding: 25px 15px;
+  }
+
+  .registration-card {
+    padding: 28px 22px;
+
+    border-radius: 20px;
+  }
+
+  .registration-card h1 {
+    font-size: 26px;
+  }
+
+  .registration-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .registration-card input {
+    padding: 12px;
+  }
+
+  .registration-card button {
+    padding: 13px;
+  }
+}
+

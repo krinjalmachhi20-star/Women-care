@@ -1,0 +1,289 @@
+.hygiene-page {
+  min-height: 100vh;
+  background: #fff8fc;
+  color: #333;
+}
+
+/* HERO */
+
+.hygiene-hero {
+  min-height: 430px;
+  padding: 50px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, #ffe3f0, #f5e8ff);
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.hero-content h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hero-content button {
+  margin-top: 20px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #d94f8a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  transform: scale(1.05);
+}
+
+.hero-image {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+}
+
+
+/* INTRO */
+
+.intro-section {
+  text-align: center;
+  max-width: 850px;
+  margin: auto;
+  padding: 60px 20px 30px;
+}
+
+.intro-section h2 {
+  font-size: 30px;
+}
+
+.intro-section p {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+
+/* TIPS */
+
+.tips-section {
+  padding: 40px 7%;
+  text-align: center;
+}
+
+.tips-section h2 {
+  font-size: 30px;
+}
+
+.section-subtitle {
+  margin-bottom: 35px;
+}
+
+.hygiene-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.hygiene-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.hygiene-card:hover {
+  transform: translateY(-8px);
+}
+
+.hygiene-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  font-size: 21px;
+}
+
+.card-content p {
+  line-height: 1.6;
+}
+
+.card-content button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: #ffe0ed;
+  cursor: pointer;
+}
+
+
+/* FACT */
+
+.fact-section {
+  margin: 50px 7%;
+  padding: 30px;
+  border-radius: 20px;
+  background: #fff0b8;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.fact-icon {
+  font-size: 45px;
+}
+
+
+/* CHECKLIST */
+
+.checklist-section {
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 35px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.checklist-section h2 {
+  text-align: center;
+}
+
+.progress-box {
+  margin: 25px 0;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #d94f8a;
+  transition: 0.4s;
+}
+
+.task-list {
+  display: grid;
+  gap: 15px;
+}
+
+.task {
+  padding: 15px;
+  background: #fff5fa;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.task input {
+  margin-right: 12px;
+  transform: scale(1.2);
+}
+
+
+/* REMINDERS */
+
+.reminder-section {
+  padding: 50px 7%;
+  text-align: center;
+}
+
+.reminder-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.reminder-container div {
+  padding: 25px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.reminder-container span {
+  font-size: 40px;
+}
+
+
+/* MEDICAL */
+
+.medical-section {
+  margin: 50px 7%;
+  padding: 30px;
+  border-radius: 18px;
+  background: #f4eaff;
+}
+
+.medical-section p {
+  line-height: 1.7;
+}
+
+
+/* FOOTER */
+
+.hygiene-footer {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  background: #f7d8e8;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .hygiene-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hygiene-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reminder-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hygiene-grid {
+    grid-template-columns: 1fr;
+  }
+}

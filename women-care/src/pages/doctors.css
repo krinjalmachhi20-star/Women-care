@@ -1,0 +1,119 @@
+.doctors-section {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  background: #fff7fb;
+  border-radius: 20px;
+}
+
+.doctors-section h2 {
+  text-align: center;
+  color: #b52d68;
+}
+
+.doctors-section > p {
+  text-align: center;
+  color: #666;
+}
+
+/* Tabs */
+
+.doctor-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.doctor-tabs button {
+  padding: 12px 20px;
+  border: 2px solid #f0d4e1;
+  background: white;
+  color: #9e285c;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.doctor-tabs button.active {
+  background: #c83f78;
+  color: white;
+  border-color: #c83f78;
+}
+
+/* Cards */
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.doctor-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #f0d4e1;
+}
+
+.doctor-icon {
+  font-size: 40px;
+}
+
+.doctor-card h3 {
+  color: #a52f65;
+  margin-bottom: 5px;
+}
+
+.doctor-type {
+  display: inline-block;
+  background: #fce4ef;
+  color: #9e285c;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.doctor-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Call button */
+
+.call-button {
+  display: inline-block;
+  text-decoration: none;
+  background: #c83f78;
+  color: white;
+  padding: 11px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.call-button:hover {
+  background: #a52f65;
+}
+
+/* Note */
+
+.doctor-note {
+  margin-top: 25px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-tabs {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+}
+
+.nutrition-page {
+  padding: 30px;
+  background: #ffb9db;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+
+/* HERO */
+
+.nutrition-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 50px;
+  border-radius: 30px;
+  background:linear-gradient(30deg,pink,rgb(211, 6, 211));
+  margin-bottom: 50px;
+
+}
+
+.sp{
+  color:black;
+}
+.hero-text {
+  max-width: 600px;
+ 
+}
+
+.small-title {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size:30px;
+  color:rgb(255, 252, 252);
+  
+
+}
+
+.hero-text h1 {
+  font-size: 50px;
+  margin: 15px 0;
+}
+
+.hero-text h1 span {
+  display: block;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-image img {
+  width: 330px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-badges span {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+
+/* SECTIONS */
+
+.journey,
+.food-section {
+  margin-bottom: 50px;
+}
+
+.journey h2,
+.food-section h2,
+.quiz-section h2,
+.achievement h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+/* NUTRIENTS */
+
+.nutrient-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.nutrient-card {
+  position: relative;
+  background:linear-gradient(60deg,rgb(251, 173, 164),rgb(252, 150, 99));
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.nutrient-card:hover {
+  transform: translateY(-8px);
+  box-shadow:2px 2px 5px grey;
+}
+
+.nutrient-icon {
+  font-size: 50px;
+}
+
+.nutrient-card h3 {
+  font-size: 22px;
+}
+
+.nutrient-card p {
+  line-height: 1.5;
+}
+
+.food-tip {
+  margin-top: 15px;
+  padding: 12px;
+  background: #f37660;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.learn-badge {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 7px 12px;
+  border-radius: 15px;
+  background: #f99577;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px grey;
+}
+
+
+/* FOOD */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background-color: #feace6;
+}
+
+.food-card {
+  background: rgb(203, 100, 251);
+  text-align: center;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.food-icon {
+  font-size: 55px;
+}
+
+.food-card button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #f4d6a0;
+}
+
+
+/* WATER */
+
+.water-section {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 30px;
+  background: #c0e5f8;
+  border-radius: 25px;
+  margin-bottom: 50px;
+}
+p{
+  color:rgb(3, 87, 183);
+}
+.water-icon {
+  font-size: 60px;
+}
+
+.water-score {
+  font-size: 25px;
+  margin-left: auto;
+}
+
+
+/* QUIZ */
+
+.quiz-section {
+  padding: 40px 0;
+}
+
+.quiz-header {
+  text-align: center;
+}
+
+.quiz-header span {
+  font-weight: bold;
+}
+
+.quiz-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-card label {
+  display: block;
+  padding: 15px;
+  margin: 10px 0;
+  background: #fafafa;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.quiz-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quiz-result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #f0f7dc;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* ACHIEVEMENT */
+
+.achievement {
+  text-align: center;
+  padding: 40px;
+  background: #fff0c9;
+  border-radius: 30px;
+}
+
+.trophy {
+  font-size: 70px;
+}
+
+.score {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .nutrition-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nutrient-grid,
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .nutrition-page {
+    padding: 15px;
+  }
+
+  .nutrition-hero {
+    padding: 25px;
+  }
+
+  .hero-text h1 {
+    font-size: 35px;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .nutrient-grid,
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .water-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .water-score {
+    margin-left: 0;
+  }
+
+}

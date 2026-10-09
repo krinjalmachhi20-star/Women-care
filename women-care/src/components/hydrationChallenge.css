@@ -1,0 +1,350 @@
+/* Main Page */
+
+.hydration-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4fbff;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+
+.hydration-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hydration-header span {
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.hydration-header h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.hydration-header p {
+  color: #666;
+}
+
+
+/* Challenge Card */
+
+.challenge-card {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Challenge Title */
+
+.challenge-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenge-title h2 {
+  margin: 0;
+}
+
+.challenge-title span {
+  background: #e3f7ff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #168acb;
+  font-weight: bold;
+}
+
+
+/* Water Drops */
+
+.water-display {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.water-drop {
+  font-size: 35px;
+  opacity: 0.25;
+  transition: 0.3s;
+}
+
+.water-drop.active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+
+/* Count */
+
+.water-count {
+  font-size: 28px;
+}
+
+
+/* Progress */
+
+.progress-container {
+  width: 100%;
+  height: 18px;
+  background: #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #42a5f5;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+
+/* Buttons */
+
+.water-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.water-buttons button {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  background: #42a5f5;
+  color: white;
+}
+
+.water-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* XP */
+
+.score-box {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #fff4c2;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+
+/* Completion */
+
+.complete-message {
+  margin-top: 25px;
+  padding: 20px;
+  background: #e8f8e8;
+  border-radius: 15px;
+}
+
+.complete-message h2 {
+  margin-top: 0;
+}
+
+
+/* Fact */
+
+.hydration-fact {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #eaf8ff;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fact-icon {
+  font-size: 40px;
+}
+
+
+/* History */
+
+.history-section {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.history-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.history-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+.history-water {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.history-card strong {
+  font-size: 25px;
+}
+
+
+/* ========================= */
+/* CSS VISUAL CHART */
+/* ========================= */
+
+.chart-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+
+  background: white;
+  border-radius: 20px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+}
+
+
+/* Chart Area */
+
+.chart {
+  height: 320px;
+
+  margin-top: 30px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-around;
+
+  gap: 25px;
+
+  padding: 20px;
+
+  border-bottom: 2px solid #ddd;
+}
+
+
+/* Individual Column */
+
+.chart-column {
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+/* Number Above Bar */
+
+.chart-value {
+  font-weight: bold;
+  color: #168acb;
+}
+
+
+/* Bar */
+
+.chart-bar {
+  width: 55px;
+
+  background: #42a5f5;
+
+  border-radius: 12px 12px 0 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 8px;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+}
+
+
+/* Bar Hover */
+
+.chart-bar:hover {
+  transform: translateY(-8px);
+}
+
+
+/* Day */
+
+.chart-day {
+  font-weight: bold;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .hydration-page {
+    padding: 15px;
+  }
+
+  .hydration-header h1 {
+    font-size: 28px;
+  }
+
+  .challenge-title {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .history-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .chart-bar {
+    width: 35px;
+  }
+
+  .chart-value {
+    font-size: 13px;
+  }
+
+}

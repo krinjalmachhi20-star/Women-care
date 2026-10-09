@@ -1,0 +1,914 @@
+
+/* ==================================
+   MENTAL WELLBEING - WOMEN CARE
+================================== */
+
+.mental-page {
+  --mental-pink: #e982a7;
+  --mental-dark: #49334d;
+  --mental-muted: #786b7c;
+  --mental-bg: #fff9fc;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 5%;
+  background: var(--mental-bg);
+  color: var(--mental-dark);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.mental-page * {
+  box-sizing: border-box;
+}
+
+.mental-page button {
+  font: inherit;
+}
+
+/* ==================================
+   HERO SECTION
+================================== */
+
+.mental-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 35px;
+  min-height: 450px;
+  padding: 55px 6%;
+  border-radius: 32px;
+  background: linear-gradient(
+    130deg,
+    #fce7f0 0%,
+    #f8e9fa 52%,
+    #eee8ff 100%
+  );
+  overflow: hidden;
+}
+
+.mental-hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.mental-eyebrow,
+.section-kicker {
+  display: inline-block;
+  color: #bd5681;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+.mental-hero h1 {
+  margin: 18px 0;
+  color: #49334d;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.mental-hero h1 span {
+  color: #d96391;
+}
+
+.mental-hero-text > p {
+  max-width: 510px;
+  color: #716275;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.mental-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 15px;
+  padding: 14px 23px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #d96795, #b66bd0);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #cc76a544;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mental-primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px #cc76a566;
+}
+
+.mental-primary-btn span {
+  font-size: 20px;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
+  color: #806b83;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero-note span {
+  color: #d96795;
+  font-size: 24px;
+}
+
+.tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 450px;
+  margin-top: 18px;
+  padding: 17px;
+  border: 1px solid #efd6e8;
+  border-radius: 18px;
+  background: #ffffffd9;
+  animation: mentalFadeIn 0.3s ease;
+}
+
+.tip-icon {
+  font-size: 25px;
+}
+
+.tip-box strong {
+  font-size: 13px;
+}
+
+.tip-box p {
+  margin: 6px 0 0;
+  color: var(--mental-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Hero image */
+
+.mental-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.hero-image-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 340px);
+  aspect-ratio: 1 / 1;
+  border: 10px solid #ffffffa6;
+  border-radius: 50%;
+  background: #ffffff8c;
+  box-shadow: 0 20px 60px #b98ab522;
+}
+
+.hero-image-frame img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.hero-image-fallback {
+  position: absolute;
+  font-size: 85px;
+}
+
+.floating-note {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 17px;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+  background: #ffffffef;
+  color: #5e4963;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px #66436b16;
+}
+
+.note-top {
+  top: 28px;
+  right: -8px;
+}
+
+.note-bottom {
+  bottom: 30px;
+  left: -12px;
+}
+
+.floating-note span {
+  font-size: 21px;
+}
+
+.hero-decoration {
+  position: absolute;
+  z-index: -1;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #ffffff45;
+}
+
+.hero-decoration-one {
+  top: -95px;
+  left: 45%;
+}
+
+.hero-decoration-two {
+  right: -100px;
+  bottom: -100px;
+  width: 260px;
+  height: 260px;
+}
+
+/* ==================================
+   INTRODUCTION
+================================== */
+
+.mental-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  max-width: 1000px;
+  margin: 55px auto 65px;
+  padding: 30px 35px;
+  border: 1px solid #f3e0eb;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 8px 30px #80506d09;
+}
+
+.intro-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: #f9e5f1;
+  font-size: 31px;
+}
+
+.mental-intro h2,
+.section-heading h2,
+.mood-section h2,
+.support-banner h2 {
+  margin: 8px 0 12px;
+  color: var(--mental-dark);
+  font-size: clamp(23px, 2.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.mental-intro p,
+.section-heading > p {
+  margin: 0;
+  color: var(--mental-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ==================================
+   SECTION HEADINGS
+================================== */
+
+.wellbeing-section,
+.habits-section {
+  margin: 0 auto 70px;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin-top: 10px;
+}
+
+.section-heading > p {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ==================================
+   WELLBEING TOPIC CARDS
+================================== */
+
+.wellbeing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.wellbeing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #f1e5ef;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 8px 24px #66436b08;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wellbeing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px #66436b15;
+}
+
+.wellbeing-card.mint {
+  --topic-bg: #e4f5ec;
+  --topic-accent: #579d7a;
+}
+
+.wellbeing-card.lavender {
+  --topic-bg: #eee7ff;
+  --topic-accent: #9073c7;
+}
+
+.wellbeing-card.peach {
+  --topic-bg: #fff0e7;
+  --topic-accent: #d78b69;
+}
+
+.wellbeing-card.pink {
+  --topic-bg: #fce6f0;
+  --topic-accent: #cf6e9c;
+}
+
+.topic-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  background: var(--topic-bg);
+  font-size: 23px;
+}
+
+.topic-number {
+  color: #cbbdcd;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.topic-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 155px;
+  margin: 17px 0;
+  border-radius: 18px;
+  background: var(--topic-bg);
+  overflow: hidden;
+}
+
+.topic-image img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.wellbeing-card:hover .topic-image img {
+  transform: scale(1.06);
+}
+
+.wellbeing-card h3 {
+  margin: 4px 0 10px;
+  color: #49334d;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.wellbeing-card > p {
+  flex: 1;
+  margin: 0;
+  color: #827486;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.topic-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f2e9f1;
+}
+
+.topic-bottom > span:first-child {
+  color: var(--topic-accent);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.topic-heart {
+  color: var(--topic-accent);
+  font-size: 23px;
+}
+
+/* ==================================
+   MOOD CHECK SECTION
+================================== */
+
+.mood-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 70px;
+  padding: 45px 6%;
+  border: 1px solid #f0def2;
+  border-radius: 30px;
+  background: linear-gradient(120deg, #f8eafa, #fceaf1);
+  overflow: hidden;
+}
+
+.mood-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mood-section h2 {
+  margin-top: 10px;
+}
+
+.mood-content > p {
+  max-width: 650px;
+  color: #786b7c;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.mood-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.mood-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 110px;
+  padding: 15px 8px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: #ffffffd9;
+  color: #67556d;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.mood-button:hover {
+  transform: translateY(-4px);
+  border-color: #e9b9d7;
+}
+
+.mood-button.selected {
+  border-color: #cc6d9b;
+  background: #fff;
+  box-shadow: 0 7px 18px #bd669b20;
+}
+
+.mood-emoji {
+  font-size: 35px;
+}
+
+.mood-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid #edd9ec;
+  border-radius: 18px;
+  background: #ffffffdf;
+  animation: mentalFadeIn 0.3s ease;
+}
+
+.result-emoji {
+  font-size: 29px;
+}
+
+.mood-result strong {
+  font-size: 14px;
+}
+
+.mood-result p {
+  margin: 6px 0;
+  color: #786b7c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.mood-result small {
+  color: #938397;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.mood-decoration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #d49bc4;
+}
+
+.mood-decoration span {
+  font-size: 48px;
+}
+
+.mood-decoration div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  border: 2px solid #e8c5e5;
+  border-radius: 50%;
+  background: #ffffff80;
+  font-size: 45px;
+}
+
+/* ==================================
+   DAILY HABITS
+================================== */
+
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.habit-card {
+  position: relative;
+  padding: 25px;
+  border: 1px solid #f1e5ef;
+  border-radius: 22px;
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.habit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #66436b0e;
+}
+
+.habit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  background: #f9e8f1;
+  font-size: 27px;
+}
+
+.habit-number {
+  position: absolute;
+  top: 28px;
+  right: 25px;
+  color: #e8d9e6;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.habit-card h3 {
+  margin: 18px 0 7px;
+  color: #49334d;
+  font-size: 16px;
+}
+
+.habit-card p {
+  margin: 0;
+  color: #827486;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ==================================
+   SUPPORT BANNER
+================================== */
+
+.support-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 45px;
+  padding: 35px;
+  border: 1px solid #f3dbe9;
+  border-radius: 25px;
+  background: linear-gradient(120deg, #fbeaf2, #f4edff);
+}
+
+.support-banner-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 30px;
+}
+
+.support-banner h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(21px, 2.5vw, 29px);
+}
+
+.support-banner p {
+  max-width: 850px;
+  margin: 0;
+  color: #786b7c;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ==================================
+   FOOTER
+================================== */
+
+.mental-footer {
+  padding: 30px 15px 15px;
+  border-top: 1px solid #f0e2ed;
+  text-align: center;
+}
+
+.footer-brand {
+  color: #c85f91;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.mental-footer p {
+  margin: 10px 0;
+  color: #786b7c;
+  font-size: 13px;
+}
+
+.mental-footer > span {
+  color: #a18ca4;
+  font-size: 11px;
+}
+
+/* ==================================
+   ACCESSIBILITY & ANIMATIONS
+================================== */
+
+.mental-page button:focus-visible {
+  outline: 3px solid #9d66bf;
+  outline-offset: 4px;
+}
+
+@keyframes mentalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================================
+   TABLET
+================================== */
+
+@media (max-width: 1050px) {
+  .wellbeing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mental-hero {
+    padding: 40px;
+  }
+
+  .mental-hero-visual {
+    min-height: 260px;
+  }
+
+  .hero-image-frame {
+    width: min(100%, 290px);
+  }
+
+  .note-top {
+    right: -5px;
+  }
+
+  .note-bottom {
+    left: -5px;
+  }
+}
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media (max-width: 650px) {
+  .mental-page {
+    padding: 16px;
+  }
+
+  .mental-hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 23px;
+    border-radius: 25px;
+  }
+
+  .mental-hero h1 {
+    font-size: 36px;
+  }
+
+  .mental-hero-text > p {
+    font-size: 13px;
+  }
+
+  .mental-hero-visual {
+    min-height: 260px;
+  }
+
+  .hero-image-frame {
+    width: 235px;
+  }
+
+  .floating-note {
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+
+  .note-top {
+    top: 10px;
+    right: 0;
+  }
+
+  .note-bottom {
+    bottom: 10px;
+    left: 0;
+  }
+
+  .mental-intro {
+    gap: 15px;
+    margin: 35px auto 45px;
+    padding: 23px 18px;
+  }
+
+  .intro-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: 24px;
+  }
+
+  .mental-intro h2 {
+    font-size: 23px;
+  }
+
+  .mental-intro p,
+  .section-heading > p {
+    font-size: 12px;
+  }
+
+  .wellbeing-section,
+  .habits-section {
+    margin-bottom: 45px;
+  }
+
+  .wellbeing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .wellbeing-card {
+    padding: 20px;
+  }
+
+  .topic-image {
+    height: 190px;
+  }
+
+  .wellbeing-card > p {
+    font-size: 13px;
+  }
+
+  .mood-section {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 45px;
+    padding: 30px 20px;
+  }
+
+  .mood-decoration {
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 5px;
+  }
+
+  .mood-decoration span {
+    font-size: 32px;
+  }
+
+  .mood-decoration div {
+    width: 55px;
+    height: 55px;
+    font-size: 30px;
+  }
+
+  .mood-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .mood-button {
+    min-height: 95px;
+  }
+
+  .habit-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .habit-card {
+    padding: 22px;
+  }
+
+  .support-banner {
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px 20px;
+  }
+
+  .support-banner h2 {
+    font-size: 23px;
+  }
+
+  .support-banner p {
+    font-size: 12px;
+  }
+
+  .mental-footer {
+    padding-top: 25px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .mental-page *,
+  .mental-page *::before,
+  .mental-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,203 @@
+/* ================================
+   Main Health Information Page
+================================ */
+
+.health-page {
+  min-height: 100vh;
+  background: #fff0f5; /* baby pink */
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.health-header {
+  text-align: center;
+  padding: 35px 20px;
+  margin-bottom: 35px;
+
+  background: linear-gradient(
+    135deg,
+    #ffd6e5,
+    #ffeaf1
+  );
+
+  border: 2px solid #f4a6c1;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 20px rgba(180, 70, 110, 0.15);
+}
+
+.health-header h1 {
+  margin: 0 0 10px;
+  color: #b83268;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.health-header p {
+  margin: 0;
+  color: #7a4055;
+  font-size: 17px;
+}
+
+
+/* ================================
+   Health Topics Section
+================================ */
+
+.topics {
+  text-align: center;
+}
+
+.topics h2 {
+  color: #a52d5f;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+
+/* ================================
+   Cards Container
+================================ */
+
+.topic-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+/* ================================
+   Individual Cards
+================================ */
+
+.topic-card {
+  background: #ffe1ec;
+
+  border: 2px solid #f3a9c4;
+  border-radius: 18px;
+
+  padding: 28px;
+
+  text-align: left;
+
+  box-shadow: 0 7px 18px rgba(190, 75, 115, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+
+/* Card Hover */
+
+.topic-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 12px 25px rgba(190, 75, 115, 0.25);
+
+  border-color: #df719d;
+}
+
+
+/* ================================
+   Card Heading
+================================ */
+
+.topic-card h3 {
+  color: #b52f66;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+
+/* ================================
+   Card Description
+================================ */
+
+.topic-card p {
+  color: #654252;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+
+/* ================================
+   Read More Button
+================================ */
+
+.topic-card button {
+  background: linear-gradient(
+    135deg,
+    #e75480,
+    #c83b6c
+  );
+
+  color: white;
+
+  border: none;
+  border-radius: 25px;
+
+  padding: 11px 22px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 12px rgba(190, 55, 100, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.topic-card button:hover {
+  background: linear-gradient(
+    135deg,
+    #c83b6c,
+    #a92857
+  );
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 18px rgba(190, 55, 100, 0.4);
+}
+
+
+/* Button Click */
+
+.topic-card button:active {
+  transform: scale(0.96);
+}
+
+
+/* ================================
+   Mobile Responsive
+================================ */
+
+@media (max-width: 768px) {
+
+  .health-page {
+    padding: 25px 15px;
+  }
+
+  .health-header h1 {
+    font-size: 28px;
+  }
+
+  .topic-container {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card {
+    padding: 22px;
+  }
+}
