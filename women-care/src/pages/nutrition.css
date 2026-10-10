@@ -1,325 +1,770 @@
-* {
+.nutrition-page {
+  min-height: 100vh;
+  background: #fff5f8;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+}
+
+.nutrition-page .navbar {
+  width: 100%;
+  min-height: 68px;
+  background: linear-gradient(45deg, #f9bee1, #620a95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 3%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nutrition-page .navbar h2 {
+  color: #6e0a4b;
+  font-size: 26px;
+  margin-right: 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nutrition-page .navbar h2:hover {
+  color: #351530;
+}
+
+.nutrition-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nutrition-page .nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nutrition-page .nav-links a {
+  color: #440348;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.nutrition-page .nav-links a:hover {
+  color: #d63384;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.nutrition-page .welcome-user {
+  margin-left: auto;
+  background: linear-gradient(30deg, white, pink);
+  box-shadow: 0 4px 10px rgba(3, 1, 0, 0.15);
+  color: #d63384;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.nutrition-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 4% 60px 4%;
+  flex-grow: 1;
   box-sizing: border-box;
 }
 
-.nutrition-page {
-  padding: 30px;
-  background: #ffb9db;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-
-/* HERO */
-
-.nutrition-hero {
+.nutrition-hero-card {
+  background: linear-gradient(135deg, #ff72a5 0%, #f43f8e 40%, #e11d74 75%, #cf106b 100%);
+  border-radius: 28px;
+  padding: 45px 50px;
+  color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
-  padding: 50px;
-  border-radius: 30px;
-  background:linear-gradient(30deg,pink,rgb(211, 6, 211));
+  box-shadow: 0 16px 36px rgba(225, 29, 116, 0.28);
   margin-bottom: 50px;
-
+  position: relative;
+  overflow: hidden;
 }
 
-.sp{
-  color:black;
-}
-.hero-text {
-  max-width: 600px;
- 
+.hero-content-col {
+  max-width: 580px;
 }
 
-.small-title {
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size:30px;
-  color:rgb(255, 252, 252);
-  
-
+.hero-top-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
-.hero-text h1 {
-  font-size: 50px;
-  margin: 15px 0;
+.hero-main-title {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.hero-text h1 span {
-  display: block;
-}
-
-.hero-text p {
-  font-size: 18px;
+.hero-tagline {
+  font-size: 17px;
   line-height: 1.6;
+  color: #ffe6f0;
+  margin-bottom: 28px;
 }
 
-.hero-image img {
-  width: 330px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.hero-badges {
+.hero-interactive-badges {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.hero-badges span {
-  background: white;
-  padding: 10px 15px;
-  border-radius: 20px;
+.hero-pill-badge {
+  background: #ffffff;
+  color: #1f2937;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
 }
 
+.hero-pill-badge:hover {
+  transform: translateY(-2px);
+}
 
-/* SECTIONS */
+.hero-visual-col {
+  flex-shrink: 0;
+}
 
-.journey,
-.food-section {
+.hero-img-frame {
+  position: relative;
+  width: 360px;
+  height: 250px;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.hero-bowl-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hero-bowl-img:hover {
+  transform: scale(1.04);
+}
+
+.doodle-sparkle-top {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 28px;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.doodle-sparkle-bottom {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.journey-section {
   margin-bottom: 50px;
 }
 
-.journey h2,
-.food-section h2,
-.quiz-section h2,
-.achievement h2 {
+.journey-header {
   text-align: center;
+  margin-bottom: 35px;
+}
+
+.journey-header h2 {
   font-size: 32px;
+  font-weight: 800;
+  color: #831843;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.section-intro {
-  text-align: center;
-  margin-bottom: 30px;
+.journey-header p {
+  font-size: 16px;
+  color: #666666;
 }
 
-
-/* NUTRIENTS */
-
-.nutrient-grid {
+.nutrients-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
 .nutrient-card {
-  position: relative;
-  background:linear-gradient(60deg,rgb(251, 173, 164),rgb(252, 150, 99));
-  padding: 25px;
-  border-radius: 25px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
+  background: linear-gradient(150deg, #fba180 0%, #f97d5b 100%);
+  border-radius: 24px;
+  padding: 28px 20px;
+  color: #431407;
+  box-shadow: 0 8px 24px rgba(249, 125, 91, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nutrient-card:hover {
-  transform: translateY(-8px);
-  box-shadow:2px 2px 5px grey;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(249, 125, 91, 0.35);
 }
 
-.nutrient-icon {
-  font-size: 50px;
+.nutrient-icon-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  height: 80px;
+  margin-bottom: 12px;
 }
 
-.nutrient-card h3 {
+.nutrient-icon-display .main-emoji {
+  font-size: 56px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.nutrient-icon-display .sub-emoji {
+  font-size: 40px;
+  margin-left: -12px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.sparkle-line {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.sparkle-line.left {
+  left: 20px;
+  top: 15px;
+}
+
+.sparkle-line.right {
+  right: 20px;
+  top: 15px;
+}
+
+.nutrient-title {
   font-size: 22px;
+  font-weight: 800;
+  color: #431407;
+  margin-bottom: 8px;
 }
 
-.nutrient-card p {
+.nutrient-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #431407;
+  margin-bottom: 16px;
+  min-height: 44px;
+}
+
+.nutrient-food-bubble {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 22px;
+  min-height: 64px;
+}
+
+.bubble-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bubble-text {
+  font-size: 13px;
+  color: #431407;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.nutrient-btn-row {
+  margin-top: auto;
+  text-align: center;
+}
+
+.xp-button {
+  background: linear-gradient(135deg, #ff4d6d, #e11d48);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 28px;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
+  transition: all 0.25s ease;
+}
+
+.xp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
+}
+
+.xp-button.xp-claimed {
+  background: #15803d;
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.3);
+}
+
+.healthy-plate-section {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 40px 45px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  margin-bottom: 50px;
+  border: 1px solid #fce3ee;
+}
+
+.plate-header {
+  margin-bottom: 35px;
+}
+
+.plate-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.plate-title-row h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #831843;
+}
+
+.cutlery-icon {
+  font-size: 32px;
+}
+
+.plate-subtitle {
+  font-size: 15px;
+  color: #666666;
+}
+
+.plate-interactive-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.plate-pointers-col {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 280px;
+}
+
+.plate-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.plate-badge-item:hover {
+  transform: scale(1.03);
+}
+
+.badge-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 18px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.badge-icon {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.badge-hint {
+  font-size: 11.5px;
+  opacity: 0.85;
+}
+
+.badge-vegetables .badge-pill {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.badge-fruits .badge-pill {
+  background: #ffe4e6;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.badge-grains .badge-pill {
+  background: #fef9c3;
+  color: #a16207;
+  border: 1px solid #fef08a;
+}
+
+.badge-protein .badge-pill {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+
+.pointer-arrow {
+  font-size: 20px;
+  font-weight: 900;
+  color: #d63384;
+}
+
+.plate-center-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plate-image-wrapper {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border: 6px solid #ffffff;
+}
+
+.healthy-plate-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plate-group-detail-card {
+  margin-top: 25px;
+  padding: 16px 20px;
+  background: #fff3f8;
+  border-radius: 16px;
+  border-left: 4px solid #d63384;
+  font-size: 14px;
+  color: #6e0a4b;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+.interactive-hydration-section {
+  margin-bottom: 50px;
+}
+
+.quiz-game-section {
+  margin-bottom: 50px;
+}
+
+.quiz-header-banner {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.quiz-tag {
+  display: inline-block;
+  background: rgba(214, 51, 132, 0.12);
+  color: #b82e70;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.quiz-header-banner h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #831843;
+  margin-bottom: 6px;
+}
+
+.quiz-header-banner p {
+  font-size: 15px;
+  color: #666666;
+}
+
+.quiz-card-box {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #f6dbe8;
+  border-radius: 24px;
+  padding: 36px 40px;
+  box-shadow: 0 8px 25px rgba(184, 46, 112, 0.08);
+}
+
+.question-count-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #b82e70;
+  margin-bottom: 8px;
+}
+
+.current-question-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quiz-option-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #fafafa;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.quiz-option-label:hover {
+  border-color: #d63384;
+  background: #fff5f8;
+}
+
+.quiz-option-label.selected-option {
+  border-color: #d63384;
+  background: #fdf0f7;
+  font-weight: 700;
+  color: #8b1352;
+}
+
+.quiz-action-btn {
+  background: #d63384;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(214, 51, 132, 0.3);
+  transition: all 0.25s ease;
+}
+
+.quiz-action-btn:hover {
+  background: #b82e70;
+  transform: translateY(-2px);
+}
+
+.result-feedback-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feedback-message {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
-.food-tip {
-  margin-top: 15px;
-  padding: 12px;
-  background: #f37660;
-  border-radius: 12px;
-  font-size: 14px;
+.feedback-correct {
+  background: #dcfce7;
+  color: #15803d;
+  margin: 0;
+  font-weight: 700;
 }
 
-.learn-badge {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 7px 12px;
-  border-radius: 15px;
-  background: #f99577;
-  font-weight: bold;
-  box-shadow: 0px 0px 5px grey;
+.feedback-incorrect {
+  background: #fee2e2;
+  color: #b91c1c;
+  margin: 0;
 }
 
-
-/* FOOD */
-
-.food-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  background-color: #feace6;
-}
-
-.food-card {
-  background: rgb(203, 100, 251);
+.quiz-finished-card {
   text-align: center;
-  padding: 25px;
-  border-radius: 25px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-.food-icon {
-  font-size: 55px;
+.quiz-finished-card h2 {
+  font-size: 28px;
+  color: #831843;
+  margin-bottom: 8px;
 }
 
-.food-card button {
-  border: none;
-  padding: 10px 18px;
+.quiz-finished-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.total-score-badge {
+  font-size: 24px;
+  font-weight: 800;
+  color: #d63384;
+  background: #fff2f8;
+  padding: 14px 28px;
   border-radius: 20px;
-  cursor: pointer;
-  background: #f4d6a0;
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
-
-/* WATER */
-
-.water-section {
+.score-summary-bar {
+  background: #ffffff;
+  border: 1px solid #f6dbe8;
+  border-radius: 20px;
+  padding: 22px 30px;
   display: flex;
   align-items: center;
-  gap: 25px;
-  padding: 30px;
-  background: #c0e5f8;
-  border-radius: 25px;
-  margin-bottom: 50px;
-}
-p{
-  color:rgb(3, 87, 183);
-}
-.water-icon {
-  font-size: 60px;
+  gap: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  margin-bottom: 20px;
 }
 
-.water-score {
-  font-size: 25px;
-  margin-left: auto;
-}
-
-
-/* QUIZ */
-
-.quiz-section {
-  padding: 40px 0;
-}
-
-.quiz-header {
-  text-align: center;
-}
-
-.quiz-header span {
-  font-weight: bold;
-}
-
-.quiz-card {
-  max-width: 650px;
-  margin: auto;
-  padding: 30px;
-  background: white;
-  border-radius: 25px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.quiz-card label {
-  display: block;
-  padding: 15px;
-  margin: 10px 0;
-  background: #fafafa;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.quiz-button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.quiz-result {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 15px;
-  background: #f0f7dc;
-  text-align: center;
-  font-weight: bold;
-}
-
-
-/* ACHIEVEMENT */
-
-.achievement {
-  text-align: center;
-  padding: 40px;
-  background: #fff0c9;
-  border-radius: 30px;
-}
-
-.trophy {
-  font-size: 70px;
-}
-
-.score {
+.trophy-icon {
   font-size: 40px;
-  font-weight: bold;
+  flex-shrink: 0;
 }
 
+.score-text-wrap {
+  flex: 1;
+}
 
-/* MOBILE */
+.score-text-wrap h3 {
+  font-size: 18px;
+  color: #831843;
+  margin-bottom: 4px;
+}
 
-@media (max-width: 900px) {
+.score-text-wrap p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
 
-  .nutrition-hero {
+.score-counter-pill {
+  background: linear-gradient(135deg, #d63384, #9f1239);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
+}
+
+.nutrition-footer {
+  background: #3b2430;
+  color: #cccccc;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+@media (max-width: 1050px) {
+  .nutrition-hero-card {
     flex-direction: column;
     text-align: center;
+    padding: 35px 30px;
   }
 
-  .nutrient-grid,
-  .food-grid {
+  .hero-content-col {
+    max-width: 100%;
+  }
+
+  .hero-interactive-badges {
+    justify-content: center;
+  }
+
+  .nutrients-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .plate-interactive-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .plate-pointers-col {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .right-arrow,
+  .left-arrow {
+    display: none;
+  }
 }
 
-@media (max-width: 600px) {
-
-  .nutrition-page {
-    padding: 15px;
+@media (max-width: 650px) {
+  .hero-main-title {
+    font-size: 36px;
   }
 
-  .nutrition-hero {
-    padding: 25px;
-  }
-
-  .hero-text h1 {
-    font-size: 35px;
-  }
-
-  .hero-image img {
+  .hero-img-frame {
     width: 100%;
+    max-width: 300px;
+    height: 200px;
   }
 
-  .nutrient-grid,
-  .food-grid {
+  .nutrients-grid {
     grid-template-columns: 1fr;
   }
 
-  .water-section {
+  .plate-pointers-col {
+    flex-direction: column;
+  }
+
+  .score-summary-bar {
     flex-direction: column;
     text-align: center;
   }
-
-  .water-score {
-    margin-left: 0;
-  }
-
 }

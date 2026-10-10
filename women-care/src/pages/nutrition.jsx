@@ -1,760 +1,511 @@
-import "./nutrition.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import HydrationChallenge from "../components/hydrationChallenge";
+import "./nutrition.css";
 
 function Nutrition() {
-
-  /* =========================
-     QUIZ STATE
-  ========================= */
+  const [user, setUser] = useState(null);
+  const [score, setScore] = useState(0);
+  const [claimedXp, setClaimedXp] = useState({});
+  const [activePlateGroup, setActivePlateGroup] = useState("all");
 
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
 
-
-  /* =========================
-     NUTRIENTS
-  ========================= */
+  useEffect(() => {
+    const savedUser = localStorage.getItem("womenCareUser");
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (savedUser && loggedIn === "true") {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   const nutrients = [
     {
+      id: "iron",
       icon: "🥬",
       name: "Iron",
-      description:
-        "Iron is important for making healthy blood.",
-      foods:
-        "Leafy vegetables, beans, lentils and fortified foods."
+      description: "Iron is important for making healthy blood.",
+      tipIcon: "🍊",
+      foods: "Leafy vegetables, beans, lentils and fortified foods."
     },
-
     {
+      id: "calcium",
       icon: "🥛",
+      subIcon: "🧀",
       name: "Calcium",
-      description:
-        "Calcium helps support healthy bones and teeth.",
-      foods:
-        "Milk, curd, cheese and some fortified foods."
+      description: "Calcium helps support healthy bones and teeth.",
+      tipIcon: "🥛",
+      foods: "Milk, curd, cheese and some fortified foods."
     },
-
     {
+      id: "protein",
       icon: "🥚",
+      subIcon: "🫘",
       name: "Protein",
-      description:
-        "Protein helps the body grow and repair tissues.",
-      foods:
-        "Eggs, pulses, beans, dairy products, nuts and seeds."
+      description: "Protein helps the body grow and repair tissues.",
+      tipIcon: "🫘",
+      foods: "Eggs, pulses, beans, dairy products, nuts and seeds."
     },
-
     {
+      id: "vitaminc",
       icon: "🍊",
       name: "Vitamin C",
       description:
         "Vitamin C supports normal immune function and helps the body absorb iron from plant foods.",
-      foods:
-        "Oranges, guava, tomatoes and other fruits and vegetables."
+      tipIcon: "🍊",
+      foods: "Oranges, guava, tomatoes and other fruits and vegetables."
     }
   ];
 
+  const handleClaimXp = (id) => {
+    if (!claimedXp[id]) {
+      setClaimedXp((prev) => ({ ...prev, [id]: true }));
+      setScore((prev) => prev + 10);
+    }
+  };
 
-  /* =========================
-     FOOD CATEGORIES
-  ========================= */
-
-  const foodCategories = [
+  const plateGroups = [
     {
-      icon: "🍎",
-      title: "Fruits",
-      text:
-        "Fruits provide vitamins, minerals and fibre."
-    },
-
-    {
+      id: "vegetables",
+      name: "Vegetables",
+      benefit: "give vitamins & fibre",
       icon: "🥦",
-      title: "Vegetables",
-      text:
-        "Vegetables provide many important nutrients and fibre."
+      colorClass: "badge-vegetables",
+      details: "Aim to fill half your plate with colorful veggies like spinach, carrots, bell peppers, and broccoli."
     },
-
     {
+      id: "fruits",
+      name: "Fruits",
+      benefit: "give vitamins",
+      icon: "🍎",
+      colorClass: "badge-fruits",
+      details: "Fresh fruits like berries, apples, and citrus provide natural hydration, antioxidants, and digestive fibre."
+    },
+    {
+      id: "grains",
+      name: "Grains",
+      benefit: "give energy",
       icon: "🌾",
-      title: "Whole Grains",
-      text:
-        "Whole grains can provide carbohydrates, fibre and other nutrients."
+      colorClass: "badge-grains",
+      details: "Choose whole grains like brown rice, oats, whole wheat, and quinoa for sustained daytime stamina."
     },
-
     {
-      icon: "🥜",
-      title: "Nuts & Seeds",
-      text:
-        "Nuts and seeds provide protein, healthy fats and other nutrients."
+      id: "protein",
+      name: "Protein",
+      benefit: "builds & repairs",
+      icon: "🫘",
+      colorClass: "badge-protein",
+      details: "Include quality plant and dairy proteins like lentils, paneer, tofu, beans, and eggs for muscle health."
     }
   ];
-
-
-  /* =========================
-     QUIZ QUESTIONS
-  ========================= */
 
   const quizQuestions = [
-
     {
-      question:
-        "Which option represents a balanced eating pattern?",
-
+      question: "Which option represents a balanced eating pattern?",
       options: [
-        {
-          text: "🍟 Eating only packaged snacks",
-          value: "a"
-        },
-        {
-          text: "🥗 Eating a variety of nutritious foods",
-          value: "b"
-        },
-        {
-          text: "🥤 Having only one type of drink",
-          value: "c"
-        }
+        { text: "🍟 Eating only packaged snacks", value: "a" },
+        { text: "🥗 Eating a variety of nutritious foods", value: "b" },
+        { text: "🥤 Having only one type of drink", value: "c" }
       ],
-
       answer: "b"
     },
-
-
     {
-      question:
-        "Which food is a good source of protein?",
-
+      question: "Which food is a good source of protein?",
       options: [
-        {
-          text: "🥚 Eggs",
-          value: "a"
-        },
-        {
-          text: "🍬 Candy",
-          value: "b"
-        },
-        {
-          text: "🥤 Soft drink",
-          value: "c"
-        }
+        { text: "🥚 Eggs & lentils", value: "a" },
+        { text: "🍬 Candy", value: "b" },
+        { text: "🥤 Soft drink", value: "c" }
       ],
-
       answer: "a"
     },
-
-
     {
-      question:
-        "Which nutrient helps support healthy bones and teeth?",
-
+      question: "Why is water important for our daily wellbeing?",
       options: [
-        {
-          text: "🍭 Sugar",
-          value: "a"
-        },
-        {
-          text: "🥛 Calcium",
-          value: "b"
-        },
-        {
-          text: "🧂 Salt",
-          value: "c"
-        }
+        { text: "💧 It supports bodily functions and energy", value: "a" },
+        { text: "🍔 It replaces all solid food", value: "b" },
+        { text: "🥤 It provides no benefit", value: "c" }
       ],
-
-      answer: "b"
-    },
-
-
-    {
-      question:
-        "Which food is a good source of iron?",
-
-      options: [
-        {
-          text: "🥬 Leafy vegetables",
-          value: "a"
-        },
-        {
-          text: "🍭 Candy",
-          value: "b"
-        },
-        {
-          text: "🥤 Soda",
-          value: "c"
-        }
-      ],
-
       answer: "a"
     },
-
-
     {
-      question:
-        "Which vitamin helps the body absorb iron from plant foods?",
-
+      question: "Which food group can provide important vitamins and minerals?",
       options: [
-        {
-          text: "🍊 Vitamin C",
-          value: "a"
-        },
-        {
-          text: "🧈 Vitamin D",
-          value: "b"
-        },
-        {
-          text: "🥛 Vitamin B12",
-          value: "c"
-        }
+        { text: "🍎 Fruits and vegetables", value: "a" },
+        { text: "🍬 Candy only", value: "b" },
+        { text: "🥤 Soft drinks only", value: "c" }
       ],
-
-      answer: "a"
-    },
-
-
-    {
-      question:
-        "Which food is a good source of fibre?",
-
-      options: [
-        {
-          text: "🍎 Fruits and vegetables",
-          value: "a"
-        },
-        {
-          text: "🍬 Candy",
-          value: "b"
-        },
-        {
-          text: "🥤 Soft drinks",
-          value: "c"
-        }
-      ],
-
-      answer: "a"
-    },
-
-
-    {
-      question:
-        "Why is drinking water important?",
-
-      options: [
-        {
-          text: "💧 It supports normal body functions",
-          value: "a"
-        },
-        {
-          text: "🍔 It replaces all food",
-          value: "b"
-        },
-        {
-          text: "🥤 It provides no benefit",
-          value: "c"
-        }
-      ],
-
-      answer: "a"
-    },
-
-
-    {
-      question:
-        "Which food group can provide important vitamins and minerals?",
-
-      options: [
-        {
-          text: "🍎 Fruits and vegetables",
-          value: "a"
-        },
-        {
-          text: "🍬 Candy only",
-          value: "b"
-        },
-        {
-          text: "🥤 Soft drinks only",
-          value: "c"
-        }
-      ],
-
       answer: "a"
     }
-
   ];
 
-
-  /* =========================
-     CHECK ANSWER
-  ========================= */
-
   const checkAnswer = () => {
-
     if (selectedAnswer === "") {
-      alert("Please select an answer.");
+      alert("Please select an answer first.");
       return;
     }
-
-    const correctAnswer =
-      quizQuestions[currentQuestion].answer;
-
+    const correctAnswer = quizQuestions[currentQuestion].answer;
     if (selectedAnswer === correctAnswer) {
-
-      setScore((previousScore) => previousScore + 10);
-
+      setScore((prev) => prev + 10);
     }
-
     setShowResult(true);
   };
 
-
-  /* =========================
-     NEXT QUESTION
-  ========================= */
-
   const nextQuestion = () => {
-
     if (currentQuestion < quizQuestions.length - 1) {
-
-      setCurrentQuestion(
-        (previousQuestion) => previousQuestion + 1
-      );
-
+      setCurrentQuestion((prev) => prev + 1);
       setSelectedAnswer("");
       setShowResult(false);
-
     } else {
-
       setQuizFinished(true);
-
     }
   };
 
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setSelectedAnswer("");
+    setShowResult(false);
+    setQuizFinished(false);
+  };
 
   return (
-
     <div className="nutrition-page">
-
-
-      {/* =========================
-          HERO SECTION
-      ========================= */}
-
-      <section className="nutrition-hero">
-
-        <div className="hero-text">
-
-          <span className="small-title">
-            🌸 WOMEN CARE
-          </span>
-
-          <h1>
-            Nutrition
-            <span> Adventure 🍎</span>
-          </h1>
-
-          <p>
-            Learn about healthy nutrition through simple,
-            colourful and interactive activities.
-          </p>
-
-          <div className="hero-badges">
-
-            <span className="sp">⭐ Learn</span>
-            <span className="sp">🥗 Explore</span>
-            <span className="sp">🏆 Earn Points</span>
-
+      
+      <nav className="navbar">
+        <Link to="/home">
+          <h2>Women Care</h2>
+        </Link>
+        <div className="nav-links">
+          <Link to="/home">Home</Link>
+          <Link to="/health_Info">Health Information</Link>
+          <Link to="/reminder">Reminders</Link>
+          <Link to="/doctors">Doctors Directory</Link>
+          <Link to="/prescription">Prescription Simplifier</Link>
+          <Link to="/registration">Register</Link>
+          <Link to="/login">Login</Link>
+        </div>
+        {user && (
+          <div className="welcome-user">
+            Welcome, {user.name}
           </div>
-
-        </div>
-
-
-        <div className="hero-image">
-
-          <img
-            src="https://images.unsplash.com/photo-1498837167922-ddd27525d352"
-            alt="Healthy nutritious food"
-          />
-
-        </div>
-
-      </section>
-
-
-
-      {/* =========================
-          NUTRITION JOURNEY
-      ========================= */}
-
-      <section className="journey">
-
-        <h2>
-          🌱 Start Your Nutrition Journey
-        </h2>
-
-        <p className="section-intro">
-          Explore the important nutrients your body needs.
-        </p>
-
-
-        <div className="nutrient-grid">
-
-          {nutrients.map((nutrient, index) => (
-
-            <div
-              className="nutrient-card"
-              key={index}
-            >
-
-              <div className="nutrient-icon">
-                {nutrient.icon}
-              </div>
-
-              <h3>
-                {nutrient.name}
-              </h3>
-
-              <p>
-                {nutrient.description}
-              </p>
-
-              <div className="food-tip">
-                🍽️ {nutrient.foods}
-              </div>
-
-              <span className="learn-badge">
-                +10 XP
-              </span>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-
-
-      {/* =========================
-          FOOD CATEGORIES
-      ========================= */}
-
-      <section className="food-section">
-
-        <h2>
-          🍽️ Build Your Healthy Plate
-        </h2>
-
-        <p className="section-intro">
-          Explore different food groups.
-        </p>
-
-
-        <div className="food-grid">
-
-          {foodCategories.map((food, index) => (
-
-            <div
-              className="food-card"
-              key={index}
-            >
-
-              <div className="food-icon">
-                {food.icon}
-              </div>
-
-              <h3>
-                {food.title}
-              </h3>
-
-              <p>
-                {food.text}
-              </p>
-
-              <button>
-                Explore →
-              </button>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-
-
-      {/* =========================
-          HYDRATION
-      ========================= */}
-
-      <section className="water-section">
-
-        <div className="water-icon">
-          💧
-        </div>
-
-
-        <div>
-
-          <h2>
-            Hydration Challenge
-          </h2>
-
-          <p>
-            Water is important for normal body functions.
-            Remember to drink fluids regularly throughout
-            the day.
-          </p>
-
-          <HydrationChallenge />
-
-        </div>
-
-
-        <div className="water-score">
-          💧 💧 💧 💧 💧
-        </div>
-
-      </section>
-
-
-
-      {/* =========================
-          QUIZ
-      ========================= */}
-
-      <section className="quiz-section">
-
-        <div className="quiz-header">
-
-          <span>
-            🎮 MINI GAME
-          </span>
-
-          <h2>
-            Nutrition Challenge
-          </h2>
-
-          <p>
-            Test what you learned!
-          </p>
-
-        </div>
-
-
-        {!quizFinished ? (
-
-          <div className="quiz-card">
-
-
-            {/* QUESTION NUMBER */}
-
-            <p className="question-number">
-
-              Question {currentQuestion + 1}
-              {" "}of{" "}
-              {quizQuestions.length}
-
-            </p>
-
-
-            {/* QUESTION */}
-
-            <h3>
-
-              {
-                quizQuestions[currentQuestion].question
-              }
-
-            </h3>
-
-
-            {/* OPTIONS */}
-
-            <div className="quiz-options">
-
-              {
-                quizQuestions[currentQuestion].options.map(
-                  (option) => (
-
-                    <label
-                      key={option.value}
-                    >
-
-                      <input
-                        type="radio"
-                        name="answer"
-                        value={option.value}
-                        checked={
-                          selectedAnswer === option.value
-                        }
-                        onChange={(e) =>
-                          setSelectedAnswer(
-                            e.target.value
-                          )
-                        }
-                      />
-
-                      {option.text}
-
-                    </label>
-
-                  )
-                )
-              }
-
-            </div>
-
-
-            {/* CHECK ANSWER */}
-
-            {!showResult ? (
-
-              <button
-                className="quiz-button"
-                onClick={checkAnswer}
-              >
-                Check Answer 🚀
-              </button>
-
-            ) : (
-
-              <>
-
-                {/* RESULT */}
-
-                <div className="quiz-result">
-
-                  {
-                    selectedAnswer ===
-                    quizQuestions[currentQuestion].answer
-                  ? (
-
-                    <>
-                      🎉 Correct!
-                      <br />
-                      You earned +10 XP.
-                    </>
-
-                  ) : (
-
-                    <>
-                      💡 Not quite!
-                      <br />
-
-                      The correct answer is:
-
-                      <br />
-
-                      <strong>
-
-                        {
-                          quizQuestions[
-                            currentQuestion
-                          ].options.find(
-                            (option) =>
-                              option.value ===
-                              quizQuestions[
-                                currentQuestion
-                              ].answer
-                          )?.text
-                        }
-
-                      </strong>
-
-                    </>
-
-                  )}
-
-                </div>
-
-
-                {/* NEXT BUTTON */}
-
-                <button
-                  className="quiz-button"
-                  onClick={nextQuestion}
-                >
-
-                  {
-                    currentQuestion ===
-                    quizQuestions.length - 1
-
-                    ? "Finish Quiz 🏆"
-
-                    : "Next Question →"
-                  }
-
-                </button>
-
-              </>
-
-            )}
-
-          </div>
-
-
-        ) : (
-
-
-          /* =========================
-             FINAL QUIZ RESULT
-          ========================= */
-
-          <div className="quiz-card">
-
-            <h2>
-              🎉 Quiz Completed!
-            </h2>
-
-            <p>
-              You completed all{" "}
-              {quizQuestions.length} questions.
-            </p>
-
-            <div className="final-score">
-              🏆 Your Score: {score} XP
-            </div>
-
-          </div>
-
         )}
+      </nav>
 
-      </section>
+      <main className="nutrition-container">
+        
+        <section className="nutrition-hero-card">
+          <div className="hero-content-col">
+            <span className="hero-top-tag">
+              🌸 WOMEN CARE
+            </span>
 
+            <h1 className="hero-main-title">
+              Nutrition <br />
+              Adventure 🍎
+            </h1>
 
+            <p className="hero-tagline">
+              Learn about healthy nutrition through simple, colourful and interactive activities.
+            </p>
 
-      {/* =========================
-          SCORE
-      ========================= */}
+            <div className="hero-interactive-badges">
+              <span className="hero-pill-badge">
+                <span className="pill-icon">⭐</span> Learn
+              </span>
+              <span className="hero-pill-badge">
+                <span className="pill-icon">🥗</span> Explore
+              </span>
+              <span className="hero-pill-badge">
+                <span className="pill-icon">🏆</span> Earn Points ({score} XP)
+              </span>
+            </div>
+          </div>
 
-      <section className="achievement">
+          <div className="hero-visual-col">
+            <div className="hero-img-frame">
+              <img
+                src="/images/nutrition_hero.jpg"
+                alt="Colorful Buddha Bowl with fresh nutritious foods"
+                className="hero-bowl-img"
+              />
+              <span className="doodle-sparkle-top">✨</span>
+              <span className="doodle-sparkle-bottom">♡</span>
+            </div>
+          </div>
+        </section>
 
-        <div className="trophy">
-          🏆
-        </div>
+        <section className="journey-section">
+          <div className="journey-header">
+            <h2>
+              <span className="plant-icon">🌱</span> Start Your Nutrition Journey
+            </h2>
+            <p>
+              Explore the important nutrients your body needs.
+            </p>
+          </div>
 
-        <h2>
-          Your Nutrition Score
-        </h2>
+          <div className="nutrients-grid">
+            {nutrients.map((item) => {
+              const isClaimed = claimedXp[item.id];
+              return (
+                <div className="nutrient-card" key={item.id}>
+                  
+                  <div className="nutrient-icon-display">
+                    <span className="main-emoji">{item.icon}</span>
+                    {item.subIcon && (
+                      <span className="sub-emoji">{item.subIcon}</span>
+                    )}
+                    <span className="sparkle-line left">\</span>
+                    <span className="sparkle-line right">/</span>
+                  </div>
 
-        <div className="score">
-          {score} XP
-        </div>
+                  <h3 className="nutrient-title">{item.name}</h3>
+                  <p className="nutrient-desc">{item.description}</p>
 
-        <p>
-          Keep exploring to learn more!
-        </p>
+                  <div className="nutrient-food-bubble">
+                    <span className="bubble-icon">{item.tipIcon}</span>
+                    <p className="bubble-text">{item.foods}</p>
+                  </div>
 
-      </section>
+                  <div className="nutrient-btn-row">
+                    <button
+                      className={`xp-button ${isClaimed ? "xp-claimed" : ""}`}
+                      onClick={() => handleClaimXp(item.id)}
+                    >
+                      {isClaimed ? "✓ +10 XP Earned" : "+10 XP"}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
+        <section className="healthy-plate-section">
+          <div className="plate-header">
+            <div className="plate-title-row">
+              <span className="cutlery-icon">🍽️</span>
+              <h2>Build Your Healthy Plate</h2>
+            </div>
+            <p className="plate-subtitle">
+              Combine different food groups to get a balanced diet and stay healthy.
+            </p>
+          </div>
 
+          <div className="plate-interactive-container">
+            
+            <div className="plate-pointers-col left-col">
+              
+              <div
+                className={`plate-badge-item badge-vegetables ${
+                  activePlateGroup === "vegetables" ? "active-badge" : ""
+                }`}
+                onClick={() =>
+                  setActivePlateGroup(
+                    activePlateGroup === "vegetables" ? "all" : "vegetables"
+                  )
+                }
+              >
+                <div className="badge-pill">
+                  <span className="badge-icon">🥦</span>
+                  <strong>Vegetables</strong>
+                  <span className="badge-hint">(give vitamins & fibre)</span>
+                </div>
+                <span className="pointer-arrow right-arrow">→</span>
+              </div>
+
+              <div
+                className={`plate-badge-item badge-fruits ${
+                  activePlateGroup === "fruits" ? "active-badge" : ""
+                }`}
+                onClick={() =>
+                  setActivePlateGroup(
+                    activePlateGroup === "fruits" ? "all" : "fruits"
+                  )
+                }
+              >
+                <div className="badge-pill">
+                  <span className="badge-icon">🍎</span>
+                  <strong>Fruits</strong>
+                  <span className="badge-hint">(give vitamins)</span>
+                </div>
+                <span className="pointer-arrow right-arrow">→</span>
+              </div>
+            </div>
+
+            <div className="plate-center-display">
+              <div className="plate-image-wrapper">
+                <img
+                  src="/images/healthy_plate.jpg"
+                  alt="Balanced Healthy Plate divided into four food groups"
+                  className="healthy-plate-img"
+                />
+              </div>
+            </div>
+
+            <div className="plate-pointers-col right-col">
+              
+              <div
+                className={`plate-badge-item badge-grains ${
+                  activePlateGroup === "grains" ? "active-badge" : ""
+                }`}
+                onClick={() =>
+                  setActivePlateGroup(
+                    activePlateGroup === "grains" ? "all" : "grains"
+                  )
+                }
+              >
+                <span className="pointer-arrow left-arrow">←</span>
+                <div className="badge-pill">
+                  <span className="badge-icon">🌾</span>
+                  <strong>Grains</strong>
+                  <span className="badge-hint">(give energy)</span>
+                </div>
+              </div>
+
+              <div
+                className={`plate-badge-item badge-protein ${
+                  activePlateGroup === "protein" ? "active-badge" : ""
+                }`}
+                onClick={() =>
+                  setActivePlateGroup(
+                    activePlateGroup === "protein" ? "all" : "protein"
+                  )
+                }
+              >
+                <span className="pointer-arrow left-arrow">←</span>
+                <div className="badge-pill">
+                  <span className="badge-icon">🫘</span>
+                  <strong>Protein</strong>
+                  <span className="badge-hint">(builds & repairs)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {activePlateGroup !== "all" && (
+            <div className="plate-group-detail-card">
+              {(() => {
+                const group = plateGroups.find((g) => g.id === activePlateGroup);
+                if (!group) return null;
+                return (
+                  <p>
+                    <strong>
+                      {group.icon} {group.name}:
+                    </strong>{" "}
+                    {group.details}
+                  </p>
+                );
+              })()}
+            </div>
+          )}
+        </section>
+
+        <section className="interactive-hydration-section">
+          <HydrationChallenge />
+        </section>
+
+        <section className="quiz-game-section">
+          <div className="quiz-header-banner">
+            <span className="quiz-tag">KNOWLEDGE REVIEW</span>
+            <h2>Clinical Nutrition Knowledge Review</h2>
+            <p>Test key takeaways regarding daily nutrient intake and balanced meals.</p>
+          </div>
+
+          {!quizFinished ? (
+            <div className="quiz-card-box">
+              <p className="question-count-text">
+                Question {currentQuestion + 1} of {quizQuestions.length}
+              </p>
+
+              <h3 className="current-question-text">
+                {quizQuestions[currentQuestion].question}
+              </h3>
+
+              <div className="quiz-options-list">
+                {quizQuestions[currentQuestion].options.map((option) => (
+                  <label
+                    key={option.value}
+                    className={`quiz-option-label ${
+                      selectedAnswer === option.value ? "selected-option" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="quiz-answer"
+                      value={option.value}
+                      checked={selectedAnswer === option.value}
+                      onChange={(e) => setSelectedAnswer(e.target.value)}
+                    />
+                    <span>{option.text}</span>
+                  </label>
+                ))}
+              </div>
+
+              {!showResult ? (
+                <button className="quiz-action-btn" onClick={checkAnswer}>
+                  Check Answer 🚀
+                </button>
+              ) : (
+                <div className="result-feedback-wrap">
+                  <div className="feedback-message">
+                    {selectedAnswer === quizQuestions[currentQuestion].answer ? (
+                      <p className="feedback-correct">
+                        🎉 Correct! You earned +10 XP.
+                      </p>
+                    ) : (
+                      <p className="feedback-incorrect">
+                        💡 Not quite! The correct answer is:{" "}
+                        <strong>
+                          {
+                            quizQuestions[currentQuestion].options.find(
+                              (opt) =>
+                                opt.value === quizQuestions[currentQuestion].answer
+                            )?.text
+                          }
+                        </strong>
+                      </p>
+                    )}
+                  </div>
+
+                  <button className="quiz-action-btn" onClick={nextQuestion}>
+                    {currentQuestion === quizQuestions.length - 1
+                      ? "Finish Quiz 🏆"
+                      : "Next Question →"}
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="quiz-card-box quiz-finished-card">
+              <h2>🎉 Quiz Completed!</h2>
+              <p>You completed all {quizQuestions.length} questions.</p>
+              <div className="total-score-badge">
+                🏆 Total Score: {score} XP
+              </div>
+              <button className="quiz-action-btn" onClick={resetQuiz}>
+                Play Again 🔄
+              </button>
+            </div>
+          )}
+        </section>
+
+        <section className="score-summary-bar">
+          <div className="trophy-icon">🏆</div>
+          <div className="score-text-wrap">
+            <h3>Your Nutrition Adventure Score</h3>
+            <p>Keep exploring and interacting with food groups to earn badges!</p>
+          </div>
+          <div className="score-counter-pill">{score} XP</div>
+        </section>
+      </main>
+
+      <footer className="nutrition-footer">
+        <p>Women Care © 2026. Dedicated to women's healthcare and awareness.</p>
+      </footer>
     </div>
-
   );
 }
 

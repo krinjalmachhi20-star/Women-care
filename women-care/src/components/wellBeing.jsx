@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./wellBeing.css";
 
@@ -64,7 +63,6 @@ function WellBeing() {
   return (
     <main className="mental-page">
 
-      {/* HERO SECTION */}
       <section className="mental-hero">
         <div className="hero-decoration hero-decoration-one"></div>
         <div className="hero-decoration hero-decoration-two"></div>
@@ -80,15 +78,11 @@ function WellBeing() {
             a <span>Peaceful Place.</span>
           </h1>
 
-          
-
           <p>
             Your mental wellbeing deserves care, kindness, and attention.
             Discover simple ways to feel supported and create a healthier
             everyday routine.
           </p>
-
-
 
           <button
             type="button"
@@ -143,7 +137,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* INTRODUCTION */}
       <section className="mental-intro">
         <div className="intro-icon">🧠</div>
         <div>
@@ -158,7 +151,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* WELLBEING TOPICS */}
       <section className="wellbeing-section">
         <div className="section-heading">
           <span className="section-kicker">LITTLE THINGS THAT HELP</span>
@@ -204,7 +196,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* MOOD CHECK */}
       <section className="mood-section">
         <div className="mood-content">
           <span className="section-kicker">PAUSE AND CHECK IN</span>
@@ -254,7 +245,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* DAILY HABITS */}
       <section className="habits-section">
         <div className="section-heading">
           <span className="section-kicker">YOUR DAILY RESET</span>
@@ -278,7 +268,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* SUPPORT MESSAGE */}
       <section className="support-banner">
         <div className="support-banner-icon">💗</div>
         <div>
@@ -293,7 +282,6 @@ function WellBeing() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="mental-footer">
         <div className="footer-brand">🌸 Women Care</div>
         <p>Care for your mind. Be gentle with yourself.</p>

@@ -1,19 +1,108 @@
-
-/* Main Page */
 .menstrual-page {
-  padding: 30px;
+  padding: 0;
   min-height: 100vh;
   box-sizing: border-box;
   background: #fff7fb;
   color: #493342;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .menstrual-page * {
   box-sizing: border-box;
 }
 
-/* Header */
+.menstrual-page .navbar {
+  width: 100%;
+  min-height: 68px;
+  background: linear-gradient(45deg, #f9bee1, #620a95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 3%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.menstrual-page .navbar h2 {
+  color: #6e0a4b;
+  font-size: 26px;
+  margin: 0 18px 0 0;
+  white-space: nowrap;
+}
+
+.menstrual-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.menstrual-page .nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.menstrual-page .nav-links a {
+  color: #440348;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.menstrual-page .nav-links a:hover {
+  color: #d63384;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.menstrual-page .nav-links a.active-nav-link {
+  color: #8b1352 !important;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 6px rgba(100, 10, 80, 0.12);
+}
+
+.menstrual-page .welcome-user {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.breadcrumb-nav-strip {
+  background: #faedf5;
+  padding: 12px 3%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #854e76;
+  border-bottom: 1px solid #f2d8e9;
+}
+
+.breadcrumb-nav-strip a {
+  color: #b52270;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.breadcrumb-nav-strip a:hover {
+  text-decoration: underline;
+}
+
 .menstrual-header {
   text-align: center;
   padding: 35px 15px;
@@ -44,7 +133,6 @@
   color: #705968;
 }
 
-/* Common Headings */
 .cycle-section,
 .healthy-section {
   margin-top: 45px;
@@ -63,7 +151,6 @@
   margin-bottom: 25px;
 }
 
-/* Interactive Section */
 .interactive-cycle {
   margin-top: 20px;
   padding: 30px;
@@ -86,7 +173,6 @@
   line-height: 1.6;
 }
 
-/* Diagram Layout */
 .cycle-interactive-layout {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
@@ -94,7 +180,6 @@
   align-items: center;
 }
 
-/* Circular Diagram */
 .cycle-diagram {
   width: 100%;
   max-width: 410px;
@@ -112,7 +197,6 @@
   box-shadow: 0 8px 25px rgba(120, 60, 100, 0.13);
 }
 
-/* Diagram Center */
 .cycle-center {
   position: absolute;
   width: 36%;
@@ -142,7 +226,6 @@
   line-height: 1.2;
 }
 
-/* Phase Buttons */
 .cycle-phase {
   position: absolute;
   width: 39%;
@@ -201,7 +284,6 @@
   left: 4%;
 }
 
-/* Selected Phase Details */
 .cycle-details {
   padding: 25px;
   border-radius: 18px;
@@ -279,7 +361,6 @@
   line-height: 1.6;
 }
 
-/* Phase Cards */
 .phase-container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -349,7 +430,6 @@
   font-size: 13px;
 }
 
-/* Did You Know */
 .cycle-fact {
   display: flex;
   align-items: flex-start;
@@ -374,7 +454,6 @@
   margin-bottom: 0;
 }
 
-/* Healthy Habits */
 .habit-container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -407,7 +486,6 @@
   font-size: 14px;
 }
 
-/* Doctor Help */
 .help-section {
   display: flex;
   gap: 18px;
@@ -436,7 +514,6 @@
   color: #705968;
 }
 
-/* Tablet */
 @media (max-width: 1000px) {
   .phase-container,
   .habit-container {
@@ -452,7 +529,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .menstrual-page {
     padding: 15px;
@@ -530,11 +606,6 @@
   }
 }
 
-
-
-
-
-/* Menstrual Health Problems Section */
 .health-problems-section {
   margin-top: 45px;
   padding: 30px;
@@ -571,7 +642,6 @@
   line-height: 1.7;
 }
 
-/* Health Problem Cards */
 .health-problems-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -624,7 +694,6 @@
   font-size: 14px;
 }
 
-/* Expanded Information */
 .health-problem-details {
   position: relative;
   margin-top: 25px;
@@ -710,14 +779,12 @@
   font-size: 13px;
 }
 
-/* Tablet */
 @media (max-width: 900px) {
   .health-problems-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .health-problems-section {
     padding: 18px;

@@ -67,8 +67,6 @@ function Hygiene() {
   return (
     <div className="hygiene-page">
 
-      {/* HERO SECTION */}
-
       <section className="hygiene-hero">
 
         <div className="hero-content">
@@ -100,9 +98,6 @@ function Hygiene() {
 
       </section>
 
-
-      {/* INTRODUCTION */}
-
       <section className="intro-section">
 
         <h2>✨ Why Personal Hygiene Matters</h2>
@@ -115,9 +110,6 @@ function Hygiene() {
         </p>
 
       </section>
-
-
-      {/* HYGIENE CARDS */}
 
       <section id="hygiene-tips" className="tips-section">
 
@@ -162,9 +154,6 @@ function Hygiene() {
 
       </section>
 
-
-      {/* DID YOU KNOW */}
-
       <section className="fact-section">
 
         <div className="fact-icon">💡</div>
@@ -181,9 +170,6 @@ function Hygiene() {
         </div>
 
       </section>
-
-
-      {/* DAILY CHECKLIST */}
 
       <section className="checklist-section">
 
@@ -211,7 +197,6 @@ function Hygiene() {
 
         </div>
 
-
         <div className="task-list">
 
           {dailyTasks.map((task) => (
@@ -233,9 +218,6 @@ function Hygiene() {
         </div>
 
       </section>
-
-
-      {/* HYGIENE REMINDERS */}
 
       <section className="reminder-section">
 
@@ -271,9 +253,6 @@ function Hygiene() {
 
       </section>
 
-
-      {/* WHEN TO SEEK HELP */}
-
       <section className="medical-section">
 
         <h2>🩺 When Should You Seek Medical Advice?</h2>
@@ -286,9 +265,6 @@ function Hygiene() {
         </p>
 
       </section>
-
-
-      {/* FOOTER */}
 
       <footer className="hygiene-footer">
 

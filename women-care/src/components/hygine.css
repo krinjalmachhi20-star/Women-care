@@ -4,8 +4,6 @@
   color: #333;
 }
 
-/* HERO */
-
 .hygiene-hero {
   min-height: 430px;
   padding: 50px 8%;
@@ -51,9 +49,6 @@
   object-fit: contain;
 }
 
-
-/* INTRO */
-
 .intro-section {
   text-align: center;
   max-width: 850px;
@@ -69,9 +64,6 @@
   font-size: 17px;
   line-height: 1.8;
 }
-
-
-/* TIPS */
 
 .tips-section {
   padding: 40px 7%;
@@ -130,9 +122,6 @@
   cursor: pointer;
 }
 
-
-/* FACT */
-
 .fact-section {
   margin: 50px 7%;
   padding: 30px;
@@ -146,9 +135,6 @@
 .fact-icon {
   font-size: 45px;
 }
-
-
-/* CHECKLIST */
 
 .checklist-section {
   margin: 50px auto;
@@ -204,9 +190,6 @@
   transform: scale(1.2);
 }
 
-
-/* REMINDERS */
-
 .reminder-section {
   padding: 50px 7%;
   text-align: center;
@@ -229,9 +212,6 @@
   font-size: 40px;
 }
 
-
-/* MEDICAL */
-
 .medical-section {
   margin: 50px 7%;
   padding: 30px;
@@ -243,18 +223,12 @@
   line-height: 1.7;
 }
 
-
-/* FOOTER */
-
 .hygiene-footer {
   margin-top: 50px;
   padding: 30px;
   text-align: center;
   background: #f7d8e8;
 }
-
-
-/* RESPONSIVE */
 
 @media (max-width: 900px) {
 

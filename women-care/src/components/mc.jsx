@@ -1,11 +1,8 @@
-
 function MC(){
-
 
 }
 
 return(
-
 
     <div>
         <p>this is mc page .</p>

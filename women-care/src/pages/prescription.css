@@ -1,225 +1,277 @@
-
-/* Main page */
 .prescription-page {
   min-height: 100vh;
-  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #fff0f6 0%, #f4edff 50%, #ffe8f1 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #3b2847;
+}
+
+.prescription-page .navbar {
+  width: 100%;
+  min-height: 68px;
+  background: linear-gradient(45deg, #f9bee1, #620a95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.prescription-page .navbar h2 {
+  color: #6e0a4b;
+  font-size: 26px;
+  margin: 0 18px 0 0;
+  white-space: nowrap;
+}
+
+.prescription-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.prescription-page .nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.prescription-page .nav-links a {
+  color: #440348;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.prescription-page .nav-links a:hover {
+  color: #d63384;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.prescription-page .nav-links a.active-nav-link {
+  color: #8b1352 !important;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 6px rgba(100, 10, 80, 0.12);
+}
+
+.prescription-page .welcome-user {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.prescription-content-container {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 4% 60px;
+  width: 100%;
   box-sizing: border-box;
-
-  background: linear-gradient(
-    135deg,
-    #fff0f6,
-    #f4edff,
-    #ffe8f1
-  );
-
-  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Main card */
 .prescription-card {
   width: 100%;
-  max-width: 650px;
-  padding: 40px;
+  max-width: 760px;
+  padding: 40px 44px;
   box-sizing: border-box;
-
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid #f5d9e8;
   border-radius: 28px;
-
-  box-shadow:
-    0 15px 45px rgba(153, 93, 143, 0.15),
-    0 4px 12px rgba(190, 110, 153, 0.08);
-
+  box-shadow: 0 15px 45px rgba(153, 93, 143, 0.15), 0 4px 12px rgba(190, 110, 153, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
-/* Hover effect */
-.prescription-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 55px rgba(153, 93, 143, 0.2);
+.rx-card-badge {
+  display: inline-block;
+  background: #fdf0f7;
+  color: #a82e79;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #f6d2e9;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Heading */
 .prescription-card h1 {
-  margin: 0 0 14px;
-  text-align: center;
-
+  margin: 0 0 10px;
   color: #a83272;
-  font-size: 32px;
-  font-weight: 750;
-  letter-spacing: -0.7px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-/* Subtitle */
 .prescription-card > p {
-  margin: 0 0 28px;
-  text-align: center;
-
+  margin: 0 0 24px;
   color: #777087;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.6;
 }
 
-/* Text area */
+.quick-presets-bar {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.presets-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8c3b7a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.presets-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset-btn {
+  background: #fbf2f8;
+  border: 1px solid #eed0e5;
+  color: #6d1f55;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  background: #d84594;
+  color: #ffffff;
+  border-color: #d84594;
+  transform: translateY(-2px);
+}
+
 .prescription-card textarea {
   display: block;
   width: 100%;
-  min-height: 160px;
-  padding: 18px;
-  margin: 0 0 22px;
+  min-height: 130px;
+  padding: 16px 18px;
+  margin: 0 0 20px;
   box-sizing: border-box;
   resize: vertical;
-
   background: #fffafd;
   border: 2px solid #ead8f1;
   border-radius: 16px;
   outline: none;
-
   color: #44364f;
   font-family: inherit;
   font-size: 16px;
-  line-height: 1.7;
-
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+  line-height: 1.6;
+  transition: all 0.2s ease;
 }
 
-/* Placeholder */
-.prescription-card textarea::placeholder {
-  color: #b4a5bb;
-}
-
-/* Focus effect */
 .prescription-card textarea:focus {
   border-color: #c15caa;
   background: #ffffff;
   box-shadow: 0 0 0 4px rgba(193, 92, 170, 0.12);
 }
 
-/* Explain button */
-.prescription-card button {
+.explain-action-btn {
   display: block;
   width: 100%;
-  padding: 16px 22px;
+  padding: 15px 22px;
   border: none;
   border-radius: 14px;
-
   background: linear-gradient(135deg, #d94f96, #9561d8);
   color: #ffffff;
-
   font-family: inherit;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.3px;
-
   cursor: pointer;
   box-shadow: 0 8px 18px rgba(193, 76, 151, 0.22);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-/* Button hover */
-.prescription-card button:hover {
+.explain-action-btn:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
   box-shadow: 0 12px 25px rgba(193, 76, 151, 0.3);
 }
 
-/* Button click */
-.prescription-card button:active {
-  transform: scale(0.98);
-}
-
-/* Keyboard accessibility */
-.prescription-card button:focus-visible {
-  outline: 3px solid #b57be8;
-  outline-offset: 4px;
-}
-
-/* Explanation result */
 .result-box {
-  margin-top: 28px;
-  padding: 24px;
-
-  background: linear-gradient(135deg, #fff0f7, #f3edff);
-  border: 1px solid #e9c9e7;
-  border-left: 5px solid #c34e99;
+  margin-top: 26px;
+  padding: 22px 24px;
+  background: #fdf4fa;
+  border: 1.5px solid #ecc9e2;
   border-radius: 18px;
-
-  animation: resultAppear 0.4s ease;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
 }
 
-/* Result heading */
-.result-box h2 {
-  margin: 0 0 12px;
-  color: #a83272;
-  font-size: 21px;
+.result-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.check-icon {
+  width: 28px;
+  height: 28px;
+  background: #28a745;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.result-heading h2 {
+  font-size: 18px;
+  color: #4b1a5e;
+  margin: 0;
   font-weight: 750;
 }
 
-/* Result text */
 .result-box p {
+  color: #3b2847;
+  font-size: 15px;
+  line-height: 1.6;
   margin: 0;
-  color: #51445d;
-  font-size: 16px;
-  line-height: 1.8;
-  overflow-wrap: anywhere;
 }
 
-/* Result animation */
-@keyframes resultAppear {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tablet and mobile */
 @media (max-width: 600px) {
-  .prescription-page {
-    padding: 30px 14px;
-    align-items: flex-start;
-  }
-
   .prescription-card {
-    padding: 26px 20px;
-    border-radius: 22px;
+    padding: 28px 20px;
   }
-
   .prescription-card h1 {
     font-size: 26px;
   }
-
-  .prescription-card > p {
-    font-size: 14px;
-  }
-
-  .prescription-card textarea {
-    min-height: 140px;
-    padding: 14px;
-    font-size: 15px;
-  }
-
-  .prescription-card button {
-    padding: 14px;
-    font-size: 16px;
-  }
-
-  .result-box {
-    padding: 18px;
-  }
 }
-

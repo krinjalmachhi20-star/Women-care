@@ -1,10 +1,22 @@
-
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import "./menstrualHealth.css";
 
 function MenstrualHealth() {
   const { id } = useParams();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("womenCareUser");
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (savedUser && loggedIn === "true") {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }, []);
 
   const phases = [
     {
@@ -54,7 +66,6 @@ function MenstrualHealth() {
     const day = Number(value);
     setCycleDay(day);
 
-    // Simplified educational 28-day example
     if (day <= 5) {
       setSelectedPhase(0);
     } else if (day <= 13) {
@@ -65,11 +76,6 @@ function MenstrualHealth() {
       setSelectedPhase(3);
     }
   }
-
-
-
-
-
 
 const healthProblems = [
   {
@@ -178,18 +184,35 @@ const healthProblems = [
 
 const [selectedProblem, setSelectedProblem] = useState(null);
 
-
-
-
-
   return (
     <div className="menstrual-page">
+      
+      <nav className="navbar">
+        <h2>Women Care</h2>
+        <div className="nav-links">
+          <Link to="/home">Home</Link>
+          <Link to="/health_Info" className="active-nav-link">Health Information</Link>
+          <Link to="/reminder">Reminders</Link>
+          <Link to="/doctors">Doctors Directory</Link>
+          <Link to="/prescription">Prescription Simplifier</Link>
+          <Link to="/registration">Register</Link>
+          <Link to="/login">Login</Link>
+        </div>
+        {user && (
+          <div className="welcome-user">
+            Welcome, {user.name}
+          </div>
+        )}
+      </nav>
 
-      {/* Page Header */}
+      <div className="breadcrumb-nav-strip">
+        <Link to="/health_Info">← Back to Health Information</Link>
+        <span>• Menstrual Cycle & Reproductive Wellness</span>
+      </div>
       <section className="menstrual-header">
         <span className="header-tag">WOMEN CARE • HEALTH EDUCATION</span>
 
-        <h1>🌸 Understanding Your Menstrual Cycle</h1>
+        <h1>Understanding Your Menstrual Cycle</h1>
 
         <p>
           Learn about your menstrual cycle, its phases, healthy habits,
@@ -197,7 +220,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </p>
       </section>
 
-      {/* Interactive Diagram */}
       <section className="interactive-cycle">
         <div className="interactive-heading">
           <h2>🔄 Explore the Menstrual Cycle</h2>
@@ -209,7 +231,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
 
         <div className="cycle-interactive-layout">
 
-          {/* Circular Diagram */}
           <div className="cycle-diagram">
 
             <div className="cycle-center">
@@ -237,7 +258,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
 
           </div>
 
-          {/* Selected Phase Details */}
           <div className="cycle-details">
             <span
               className="phase-label"
@@ -291,7 +311,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </div>
       </section>
 
-      {/* Four Phase Information Cards */}
       <section className="cycle-section">
         <h2>🌷 The Four Main Phases</h2>
 
@@ -332,7 +351,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </div>
       </section>
 
-      {/* Did You Know */}
       <section className="cycle-fact">
         <span className="fact-icon">💡</span>
         <div>
@@ -345,7 +363,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </div>
       </section>
 
-      {/* Healthy Habits */}
       <section className="healthy-section">
         <h2>🌿 Healthy Period Habits</h2>
 
@@ -382,7 +399,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </div>
       </section>
 
-      {/* When to Contact a Doctor */}
       <section className="help-section">
         <div className="help-icon">🩺</div>
 
@@ -402,9 +418,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
         </div>
       </section>
 
-
-    
-{/* Common Menstrual Health Problems */}
 <section className="health-problems-section">
   <div className="health-problems-heading">
     <span className="health-section-tag">
@@ -449,7 +462,6 @@ const [selectedProblem, setSelectedProblem] = useState(null);
     ))}
   </div>
 
-  {/* Selected Problem Details */}
   {selectedProblem && (
     <div className="health-problem-details">
       <button
@@ -494,9 +506,27 @@ const [selectedProblem, setSelectedProblem] = useState(null);
   )}
 </section>
 
-
-
-
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="footer-col">
+            <h3>Women Care</h3>
+            <p>Empowering women through accessible health education, tools, and personalized tracking.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><Link to="/home">Home</Link></li>
+              <li><Link to="/health_Info">Health Information</Link></li>
+              <li><Link to="/reminder">Reminders</Link></li>
+              <li><Link to="/doctors">Doctors Directory</Link></li>
+              <li><Link to="/prescription">Prescription Simplifier</Link></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>Women Care © 2026. Dedicated to women's healthcare and awareness.</p>
+        </div>
+      </footer>
     </div>
   );
 }

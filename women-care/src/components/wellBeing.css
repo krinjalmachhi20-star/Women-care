@@ -1,8 +1,3 @@
-
-/* ==================================
-   MENTAL WELLBEING - WOMEN CARE
-================================== */
-
 .mental-page {
   --mental-pink: #e982a7;
   --mental-dark: #49334d;
@@ -25,10 +20,6 @@
 .mental-page button {
   font: inherit;
 }
-
-/* ==================================
-   HERO SECTION
-================================== */
 
 .mental-hero {
   position: relative;
@@ -153,8 +144,6 @@
   line-height: 1.7;
 }
 
-/* Hero image */
-
 .mental-hero-visual {
   position: relative;
   display: flex;
@@ -242,10 +231,6 @@
   height: 260px;
 }
 
-/* ==================================
-   INTRODUCTION
-================================== */
-
 .mental-intro {
   display: flex;
   align-items: flex-start;
@@ -290,10 +275,6 @@
   line-height: 1.9;
 }
 
-/* ==================================
-   SECTION HEADINGS
-================================== */
-
 .wellbeing-section,
 .habits-section {
   margin: 0 auto 70px;
@@ -312,10 +293,6 @@
   max-width: 620px;
   margin: 0 auto;
 }
-
-/* ==================================
-   WELLBEING TOPIC CARDS
-================================== */
 
 .wellbeing-grid {
   display: grid;
@@ -442,10 +419,6 @@
   color: var(--topic-accent);
   font-size: 23px;
 }
-
-/* ==================================
-   MOOD CHECK SECTION
-================================== */
 
 .mood-section {
   position: relative;
@@ -575,10 +548,6 @@
   font-size: 45px;
 }
 
-/* ==================================
-   DAILY HABITS
-================================== */
-
 .habit-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -632,10 +601,6 @@
   line-height: 1.8;
 }
 
-/* ==================================
-   SUPPORT BANNER
-================================== */
-
 .support-banner {
   display: flex;
   align-items: flex-start;
@@ -672,10 +637,6 @@
   line-height: 1.9;
 }
 
-/* ==================================
-   FOOTER
-================================== */
-
 .mental-footer {
   padding: 30px 15px 15px;
   border-top: 1px solid #f0e2ed;
@@ -699,10 +660,6 @@
   font-size: 11px;
 }
 
-/* ==================================
-   ACCESSIBILITY & ANIMATIONS
-================================== */
-
 .mental-page button:focus-visible {
   outline: 3px solid #9d66bf;
   outline-offset: 4px;
@@ -719,10 +676,6 @@
     transform: translateY(0);
   }
 }
-
-/* ==================================
-   TABLET
-================================== */
 
 @media (max-width: 1050px) {
   .wellbeing-grid {
@@ -749,10 +702,6 @@
     left: -5px;
   }
 }
-
-/* ==================================
-   MOBILE
-================================== */
 
 @media (max-width: 650px) {
   .mental-page {
@@ -900,8 +849,6 @@
     padding-top: 25px;
   }
 }
-
-/* Respect reduced-motion preferences */
 
 @media (prefers-reduced-motion: reduce) {
   .mental-page *,

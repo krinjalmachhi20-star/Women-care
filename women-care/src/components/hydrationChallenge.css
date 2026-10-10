@@ -1,350 +1,793 @@
-/* Main Page */
-
-.hydration-page {
-  min-height: 100vh;
-  padding: 30px;
-  background: #f4fbff;
-  font-family: Arial, sans-serif;
-}
-
-
-/* Header */
-
-.hydration-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.hydration-header span {
-  font-weight: bold;
-  color: #2196f3;
-}
-
-.hydration-header h1 {
-  font-size: 36px;
-  margin: 10px 0;
-}
-
-.hydration-header p {
-  color: #666;
-}
-
-
-/* Challenge Card */
-
-.challenge-card {
-  max-width: 800px;
-  margin: auto;
-  padding: 30px;
-  background: white;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-
-/* Challenge Title */
-
-.challenge-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.challenge-title h2 {
-  margin: 0;
-}
-
-.challenge-title span {
-  background: #e3f7ff;
-  padding: 8px 15px;
-  border-radius: 20px;
-  color: #168acb;
-  font-weight: bold;
-}
-
-
-/* Water Drops */
-
-.water-display {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.water-drop {
-  font-size: 35px;
-  opacity: 0.25;
-  transition: 0.3s;
-}
-
-.water-drop.active {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-
-/* Count */
-
-.water-count {
-  font-size: 28px;
-}
-
-
-/* Progress */
-
-.progress-container {
+.hydration-challenge-wrapper {
   width: 100%;
-  height: 18px;
-  background: #e5e5e5;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+.hydro-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.hydro-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 16px;
   border-radius: 20px;
+  border: 1px solid #bae6fd;
+  margin-bottom: 14px;
+}
+
+.hydro-header h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #0369a1;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.hydro-header p {
+  font-size: 16px;
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hydro-main-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 50%, #faf5ff 100%);
+  border: 2px solid #bae6fd;
+  border-radius: 26px;
+  padding: 38px 40px;
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  position: relative;
   overflow: hidden;
 }
 
-.progress-bar {
-  height: 100%;
-  background: #42a5f5;
-  border-radius: 20px;
-  transition: width 0.3s;
+.hydro-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-
-/* Buttons */
-
-.water-buttons {
+.hydro-status-group {
   display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hydro-game-icon {
+  font-size: 32px;
+  background: #e0f2fe;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin: 25px 0;
+  border-radius: 16px;
+  border: 1px solid #bae6fd;
 }
 
-.water-buttons button {
-  border: none;
-  padding: 12px 22px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  background: #42a5f5;
-  color: white;
+.hydro-status-group h3 {
+  font-size: 22px;
+  color: #0f172a;
+  margin: 0 0 4px;
+  font-weight: 750;
 }
 
-.water-buttons button:hover {
-  transform: translateY(-2px);
-}
-
-
-/* XP */
-
-.score-box {
+.hydro-rank-badge {
   display: inline-block;
-  padding: 12px 25px;
-  background: #fff4c2;
+  background: linear-gradient(135deg, #0284c7, #6366f1);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.hydro-xp-pill {
+  background: #fef3c7;
+  border: 1.5px solid #fde68a;
+  color: #92400e;
+  padding: 8px 18px;
   border-radius: 20px;
-  font-weight: bold;
-}
-
-
-/* Completion */
-
-.complete-message {
-  margin-top: 25px;
-  padding: 20px;
-  background: #e8f8e8;
-  border-radius: 15px;
-}
-
-.complete-message h2 {
-  margin-top: 0;
-}
-
-
-/* Fact */
-
-.hydration-fact {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 25px;
-  background: #eaf8ff;
-  border-radius: 20px;
-
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
+  font-size: 14px;
 }
 
-.fact-icon {
-  font-size: 40px;
+.xp-star {
+  font-size: 18px;
 }
 
-
-/* History */
-
-.history-section {
-  max-width: 900px;
-  margin: 40px auto;
-  text-align: center;
+.hydro-xp-pill strong {
+  font-size: 16px;
+  color: #78350f;
 }
 
-.history-cards {
+.xp-rate {
+  font-size: 12px;
+  color: #b45309;
+}
+
+.hydro-droplets-rack {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  margin-top: 25px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-.history-card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-}
-
-.history-water {
-  font-size: 30px;
-  margin: 10px;
-}
-
-.history-card strong {
-  font-size: 25px;
-}
-
-
-/* ========================= */
-/* CSS VISUAL CHART */
-/* ========================= */
-
-.chart-section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-
-  background: white;
-  border-radius: 20px;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
-  text-align: center;
-}
-
-
-/* Chart Area */
-
-.chart {
-  height: 320px;
-
-  margin-top: 30px;
-
+.hydro-droplet-btn {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 14px 6px;
+  cursor: pointer;
   display: flex;
-
-  align-items: flex-end;
-
-  justify-content: space-around;
-
-  gap: 25px;
-
-  padding: 20px;
-
-  border-bottom: 2px solid #ddd;
-}
-
-
-/* Individual Column */
-
-.chart-column {
-  height: 100%;
-
-  display: flex;
-
   flex-direction: column;
-
-  justify-content: flex-end;
-
   align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
 
+.hydro-droplet-btn:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.25);
+}
+
+.droplet-shape {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #f8fafc;
+  transition: all 0.25s ease;
+}
+
+.droplet-emoji {
+  font-size: 22px;
+  transition: transform 0.25s ease;
+}
+
+.droplet-num {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #64748b;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.droplet-sublabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.hydro-droplet-btn.filled {
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
+  border-color: #0284c7;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.2);
+}
+
+.hydro-droplet-btn.filled .droplet-shape {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.hydro-droplet-btn.filled .droplet-emoji {
+  transform: scale(1.2);
+}
+
+.hydro-droplet-btn.filled .droplet-num {
+  background: #0284c7;
+}
+
+.hydro-droplet-btn.filled .droplet-sublabel {
+  color: #0369a1;
+  font-weight: 800;
+}
+
+.hydro-progress-block {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 24px;
+  border: 1px solid #e0f2fe;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.05);
+  margin-bottom: 28px;
+}
+
+.hydro-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
-
-/* Number Above Bar */
-
-.chart-value {
-  font-weight: bold;
-  color: #168acb;
-}
-
-
-/* Bar */
-
-.chart-bar {
-  width: 55px;
-
-  background: #42a5f5;
-
-  border-radius: 12px 12px 0 0;
-
+.hydro-metric-main {
   display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
 
+.current-count {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0284c7;
+  line-height: 1;
+}
+
+.total-target {
+  font-size: 18px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.ml-equiv {
+  font-size: 14px;
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+.hydro-percentage-tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 14px;
+}
+
+.hydro-progress-track {
+  width: 100%;
+  height: 20px;
+  background: #e2e8f0;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hydro-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 70%, #ec4899 100%);
+  border-radius: 30px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmerMove 2s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.hydro-buttons-row {
+  display: flex;
+  gap: 14px;
   justify-content: center;
+  flex-wrap: wrap;
+}
 
+.hydro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.hydro-btn.add-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.3);
+}
+
+.hydro-btn.add-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.4);
+  filter: brightness(1.08);
+}
+
+.hydro-btn.remove-btn {
+  background: #ffffff;
+  color: #475569;
+  border: 1.5px solid #cbd5e1;
+}
+
+.hydro-btn.remove-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+}
+
+.hydro-btn.reset-btn {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+}
+
+.hydro-btn.reset-btn:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+.hydro-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.hydro-celebrate-card {
+  margin-top: 24px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid #a7f3d0;
+  border-radius: 18px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  animation: celebratePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes celebratePop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.celebrate-icon {
+  font-size: 38px;
+  flex-shrink: 0;
+}
+
+.celebrate-text h4 {
+  font-size: 18px;
+  color: #065f46;
+  margin: 0 0 4px;
+  font-weight: 800;
+}
+
+.celebrate-text p {
+  font-size: 14px;
+  color: #047857;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.achievement-chip {
+  display: inline-block;
+  background: #065f46;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 750;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.hydro-fact-card {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
   align-items: flex-start;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.05);
+  margin-bottom: 30px;
+}
 
-  padding-top: 8px;
+.fact-badge-icon {
+  font-size: 30px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
+.fact-body {
+  flex: 1;
+}
+
+.fact-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fact-header-row h4 {
+  font-size: 17px;
+  color: #0369a1;
+  margin: 0;
+  font-weight: 750;
+}
+
+.next-fact-btn {
+  background: #e0f2fe;
+  border: none;
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 750;
+  padding: 4px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-fact-btn:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.fact-body p {
+  font-size: 14.5px;
+  color: #334155;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.hydro-history-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 28px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 30px;
+}
+
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.sec-icon {
+  font-size: 26px;
+}
+
+.section-title-wrap h3 {
   font-size: 20px;
-
-  transition: 0.3s;
+  color: #0f172a;
+  margin: 0 0 2px;
+  font-weight: 750;
 }
 
-
-/* Bar Hover */
-
-.chart-bar:hover {
-  transform: translateY(-8px);
+.section-title-wrap p {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
 }
 
-
-/* Day */
-
-.chart-day {
-  font-weight: bold;
+.avg-metric-badge {
+  margin-left: auto;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 14px;
 }
 
+.history-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
 
-/* Mobile */
+.history-pill-card {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
 
-@media (max-width: 700px) {
+.history-pill-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.15);
+}
 
-  .hydration-page {
-    padding: 15px;
+.history-pill-card.goal-met {
+  background: linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 100%);
+  border-color: #86efac;
+}
+
+.history-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.hist-day {
+  font-size: 14px;
+  font-weight: 800;
+  color: #334155;
+}
+
+.hist-pct {
+  font-size: 11px;
+  font-weight: 750;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.goal-met .hist-pct {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.hist-icon-wrap {
+  font-size: 26px;
+  margin: 6px 0;
+}
+
+.hist-data strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.hist-target {
+  font-size: 12px;
+  color: #64748b;
+  margin-left: 2px;
+}
+
+.hist-ml {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0284c7;
+  margin-top: 4px;
+}
+
+.hydro-chart-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 28px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+}
+
+.chart-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chart-title-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chart-title-left h3 {
+  font-size: 20px;
+  color: #0f172a;
+  margin: 0 0 2px;
+  font-weight: 750;
+}
+
+.chart-title-left p {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.legend-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0284c7;
+}
+
+.chart-stage {
+  position: relative;
+  height: 260px;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.benchmark-line {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed #93c5fd;
+  z-index: 1;
+}
+
+.benchmark-label {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 11px;
+  font-weight: 750;
+  color: #0284c7;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.chart-bars-wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 16px;
+  border-bottom: 2px solid #cbd5e1;
+  z-index: 2;
+  padding-bottom: 4px;
+}
+
+.chart-column-item {
+  height: 100%;
+  flex: 1;
+  max-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.column-top-val {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.column-track {
+  width: 48px;
+  height: 160px;
+  background: #f1f5f9;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.column-bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: 14px 14px 0 0;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.column-bar-fill.perfect-bar {
+  background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+}
+
+.bar-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 14px 14px 0 0;
+}
+
+.column-day-label {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #334155;
+  margin-top: 4px;
+}
+
+.column-ml-label {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hydro-droplets-rack {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .hydration-header h1 {
-    font-size: 28px;
+  .history-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hydro-main-card {
+    padding: 24px 18px;
   }
 
-  .challenge-title {
-    flex-direction: column;
-    gap: 10px;
+  .hydro-header h2 {
+    font-size: 26px;
   }
 
-  .history-cards {
+  .hydro-droplets-rack {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .history-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .chart {
-    gap: 10px;
-    padding: 10px;
+  .column-track {
+    width: 32px;
   }
 
-  .chart-bar {
-    width: 35px;
+  .chart-header-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
-
-  .chart-value {
-    font-size: 13px;
-  }
-
 }

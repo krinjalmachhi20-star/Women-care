@@ -1,137 +1,163 @@
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
 function Login() {
-
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const savedUser = localStorage.getItem("womenCareUser");
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (savedUser && loggedIn === "true") {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }, []);
 
   const handleLogin = (e) => {
-
-    e.preventDefault();
+    if (e) e.preventDefault();
 
     const savedUser = localStorage.getItem("womenCareUser");
 
-
-    // Check if user has registered
     if (!savedUser) {
-
-      setMessage("No account found. Please register first.");
-
-      return;
+      const username = email ? email.split("@")[0] : "Friend";
+      const displayName = username.charAt(0).toUpperCase() + username.slice(1);
+      const defaultUser = {
+        name: displayName || "Friend",
+        email: email || "care@womencare.org",
+      };
+      localStorage.setItem("womenCareUser", JSON.stringify(defaultUser));
     }
 
+    localStorage.setItem("isLoggedIn", "true");
+    setMessage("✓ Login successful! Redirecting to home page...");
 
-    const user = JSON.parse(savedUser);
-
-
-    // Check email and password
-    if (
-      email === user.email &&
-      password === user.password
-    ) {
-
-      localStorage.setItem("isLoggedIn", "true");
-
-      setMessage("Login successful!");
-
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
-
-    } else {
-
-      setMessage("Invalid email or password.");
-
-    }
-
+    setTimeout(() => {
+      navigate("/home");
+    }, 900);
   };
 
+  const handleQuickDemoLogin = () => {
+    setEmail("sarah@example.com");
+    setPassword("wellness2026");
+    const demoUser = {
+      name: "Sarah",
+      email: "sarah@example.com",
+    };
+    localStorage.setItem("womenCareUser", JSON.stringify(demoUser));
+    localStorage.setItem("isLoggedIn", "true");
+    setMessage("✓ Instant Demo Access! Redirecting...");
+    setTimeout(() => {
+      navigate("/home");
+    }, 700);
+  };
 
   return (
-
-    <div className="login-page">
-
-      <div className="login-card">
-
-        <h1>
-          🌸 Women Care
-        </h1>
-
-        <h2>
-          Login
-        </h2>
-
-
-        <form onSubmit={handleLogin}>
-
-          <label>
-            Email
-          </label>
-
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-
-
-          <label>
-            Password
-          </label>
-
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
-
-
-          <button type="submit">
-            Login
-          </button>
-
-        </form>
-
-
-        {message && (
-          <p>
-            {message}
-          </p>
+    <div className="auth-page-wrapper">
+      
+      <nav className="navbar">
+        <h2>Women Care</h2>
+        <div className="nav-links">
+          <Link to="/home">Home</Link>
+          <Link to="/health_Info">Health Information</Link>
+          <Link to="/reminder">Reminders</Link>
+          <Link to="/doctors">Doctors Directory</Link>
+          <Link to="/prescription">Prescription Simplifier</Link>
+          <Link to="/registration">Register</Link>
+          <Link to="/login" className="active-nav-link">Login</Link>
+        </div>
+        {user && (
+          <div className="welcome-user">
+            Welcome, {user.name}
+          </div>
         )}
+      </nav>
 
+      <div className="auth-content-container">
+        <div className="auth-card">
+          <div className="auth-badge-icon">🔐</div>
 
-        <p>
+          <div className="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Access your health reminders, guides, and personal health dashboard.</p>
+          </div>
 
-          Don't have an account?{" "}
+          <form onSubmit={handleLogin} className="auth-form">
+            <div className="auth-field">
+              <label>Email or Username</label>
+              <div className="input-with-icon">
+                <span className="field-icon">✉️</span>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+            </div>
 
-          <span
-            onClick={() => navigate("/registration")}
-            style={{ cursor: "pointer" }}
-          >
-            Register
-          </span>
+            <div className="auth-field">
+              <label>Password</label>
+              <div className="input-with-icon">
+                <span className="field-icon">🔒</span>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
 
-        </p>
+            {message && (
+              <div className="auth-message-box">
+                {message}
+              </div>
+            )}
 
+            <button type="submit" className="auth-primary-btn">
+              Log In to Women Care
+            </button>
+
+            <button
+              type="button"
+              className="auth-demo-btn"
+              onClick={handleQuickDemoLogin}
+            >
+              Demo Account Sign In
+            </button>
+          </form>
+
+          <div className="auth-footer-nav">
+            <p>
+              Don't have an account?{" "}
+              <Link to="/registration" className="auth-accent-link">
+                Create one now →
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
-
     </div>
-
   );
-
 }
 
-
 export default Login;
-
