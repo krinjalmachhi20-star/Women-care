@@ -32,8 +32,6 @@ function Home() {
     }
 
   }, []);
-
-
   return (
     <div className="app">
 
@@ -53,8 +51,6 @@ function Home() {
            <Link to="/registration">Register </Link>
            <Link to="/login">Login</Link>
         </div>
-
-
         {/* Welcome message */}
 
         {user && (
@@ -64,7 +60,6 @@ function Home() {
         )}
 
       </nav>
-
 
       {/* ================= HERO SECTION ================= */}
 
@@ -98,12 +93,8 @@ function Home() {
         <h2>
           How We Can Help
         </h2>
-
-
         <div className="feature-container">
-
-
-          {/* Health Information */}
+           {/* Health Information */}
 
           <div className="feature-card">
 
@@ -117,9 +108,7 @@ function Home() {
             </p>
 
           </div>
-
-
-          {/* Health Reminders */}
+         {/* Health Reminders */}
 
           <div className="feature-card">
 
@@ -132,9 +121,7 @@ function Home() {
               reminders.
             </p>
 
-          </div>
-
-
+          </div> 
           {/* Health Services */}
 
           <div className="feature-card">
@@ -168,9 +155,6 @@ function Home() {
     </div>
   );
 }
-
-
-
 // ================= MAIN APP =================
 
 function App() {
